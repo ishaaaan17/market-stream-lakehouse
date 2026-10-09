@@ -1,0 +1,53 @@
+version: 2
+
+models:
+  - name: stg_market_trades
+    description: "Cleansed and deduplicated streaming trade executions from Silver layer."
+    columns:
+      - name: trade_id
+        description: "Primary key for individual trade execution."
+        tests:
+          - unique
+          - not_null
+      - name: ticker
+        description: "Equity instrument symbol."
+        tests:
+          - not_null
+      - name: execution_price
+        description: "Fill price per share."
+        tests:
+          - not_null
+      - name: quantity
+        description: "Number of executed shares."
+        tests:
+          - not_null
+      - name: venue
+        description: "Execution trading venue (e.g., XNAS, XNYS, BATS)."
+        tests:
+          - accepted_values:
+              values: ['XNAS', 'XNYS', 'BATS', 'ARCA', 'IEXG']
+
+  - name: fct_trade_executions
+    description: "Core dimensional fact table containing atomic executions and slippage metrics."
+    columns:
+      - name: trade_id
+        tests:
+          - unique
+          - not_null
+      - name: notional_value
+        description: "Total dollar value traded (execution_price * quantity)."
+        tests:
+          - not_null
+
+  - name: agg_intraday_vwap
+    description: "Volume-Weighted Average Price curves aggregated at 1-minute time windows."
+    columns:
+      - name: ticker
+        tests:
+          - not_null
+      - name: time_window_1min
+        tests:
+          - not_null
+      - name: vwap_price
+        tests:
+          - not_null
