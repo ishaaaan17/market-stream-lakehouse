@@ -1,0 +1,26 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+ENV/
+.env
+
+# Data artifacts
+data/bronze/*
+data/silver/*
+data/gold/*
+data/dlq/*
+!data/bronze/.gitkeep
+!data/silver/.gitkeep
+!data/gold/.gitkeep
+!data/dlq/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
