@@ -18,7 +18,7 @@ This document records the actual systems bugs, edge cases, and architectural tra
 - **Symptom:** Simulated worker crash caused subsequent queries over the same timeframe to return inconsistent row totals.
 - **Root Cause:** In an at-least-once message stream, redelivering unacknowledged offsets produces identical `trade_id` records. A naive append stream simply inserted both copies, inflating total traded volume by the duplicate count.
 - **Resolution:** Introduced the `WatermarkedDeduplicator` state cache. The worker evaluates each inbound record against active `trade_id` hashes within the active 30-second watermark window before disk flush.
-- **Outcome:** Verified 100% duplicate elimination under simulated `SIGKILL` chaos tests.
+- **Outcome:** Verified 100% duplicate elimination under the in-process crash simulation, and under a real subprocess SIGKILL test with persisted dedup state (`src/chaos/real_crash.py`).
 
 ---
 

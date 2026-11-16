@@ -448,8 +448,8 @@ with tab_chaos:
     html("""
     <div class="panel">
       <h4>What this test does</h4>
-      <p>It SIGKILLs the consumer halfway through a stream that already contains duplicate and late events, then lets the broker replay messages.
-      If the lakehouse is exactly-once, the clean layer ends with no duplicates and no missing trades.</p>
+      <p>This dashboard runs the in-process crash SIMULATION: the consumer is dropped halfway through a stream that already contains duplicate and late events, then the stream is replayed and reconciled for real (committed ∪ quarantined must equal the original trade ids — the verdict below is computed, not hardcoded).
+      A separate test (<i>tests/test_real_crash_recovery.py</i>) kills a real subprocess with SIGKILL and recovers from persisted dedup state. If the lakehouse is exactly-once, the clean layer ends with no duplicates and no missing trades.</p>
     </div>
     """)
 
@@ -471,7 +471,7 @@ with tab_chaos:
 
         tiles(
             tile("Input stream", f"{total_in:,}", "events including injected chaos"),
-            tile("Worker crashed at", f"#{crash:,}", "SIGKILL, no graceful shutdown", "warn"),
+            tile("Worker crashed at", f"#{crash:,}", "simulated crash, no graceful shutdown", "warn"),
             tile("Duplicates blocked", f"{dups:,}", "intercepted before silver", "violet"),
             tile("Clean trades committed", f"{clean:,}", "unique executions in silver", "ok" if chaos_ok else "bad"),
         )

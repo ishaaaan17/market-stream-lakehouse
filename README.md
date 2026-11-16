@@ -35,7 +35,7 @@ Every metric in this repository is measured directly from automated benchmarks a
 | **Consumer & Dedup Drain Rate** | **750,564 events/sec** | Zero-copy validation, event-time watermarking, and in-memory state tracking |
 | **Compaction Scan Acceleration** | **5.05x FASTER** | Scan latency dropped from **13.98 ms → 2.77 ms** after consolidating 40 small files |
 | **Lakehouse Storage Compression** | **18.94% reduction** | Consolidated dictionary encoding & column striping vs. fragmented micro-batches |
-| **Worker Crash Fault Tolerance** | **0 Duplicates · 0 Lost Records** | Exactly-Once state verified after forceful `SIGKILL` termination & replayed stream |
+| **Worker Crash Fault Tolerance** | **0 Duplicates · 0 Lost Records** | Verified two ways: an in-process crash simulation with computed reconciliation, and a real subprocess `SIGKILL` test that recovers from dedup state persisted to disk (`src/chaos/real_crash.py`) |
 
 ---
 
@@ -57,16 +57,14 @@ Every metric in this repository is measured directly from automated benchmarks a
   - Atomically unlinks old micro-batches.
   - **Result:** Query scan time dropped by **80.2% (5.05x speedup)** in DuckDB analytical scans.
 
-### 3. Chaos Engineering: Exactly-Once Proof (`src/chaos/chaos_engine.py`)
-- Simulates an ungraceful consumer crash:
+### 3. Chaos Engineering: Exactly-Once Proof (`src/chaos/`)
+- **Simulation (`chaos_engine.py`)** — simulates an ungraceful consumer crash in-process:
   1. Consumer processes 2,500 streaming trades.
-  2. Worker is terminated abruptly mid-flight.
+  2. Worker is dropped abruptly mid-flight.
   3. Broker re-delivers the last 1,000 unacknowledged in-flight events alongside remaining stream.
   4. Recovered worker resumes state and processes replayed stream.
-  5. Reconciliation engine cross-checks committed trades against original gold-truth inputs:
-     - **`is_zero_duplicates = True`**
-     - **`all_unique_preserved = True`**
-     - Zero phantom records admitted.
+  5. Reconciliation is **computed, not hardcoded**: zero duplicates is checked on the committed list, and `committed ∪ quarantined == original unique trade ids` must hold exactly, with no phantom records.
+- **Real crash test (`real_crash.py`, `tests/test_real_crash_recovery.py`)** — ingestion runs in a separate subprocess whose dedup state is persisted to disk after every batch; the process is killed with a real `SIGKILL`, restarted, the full stream is replayed, and the same reconciliation must pass.
 
 ### 4. Medallion Storage & Kimball Dimensional Marts (`src/transforms/` & `dbt/`)
 - **Bronze (Raw Audit Tier):** Append-only immutable Parquet logs partitioned chronologically by `date/hour`.
