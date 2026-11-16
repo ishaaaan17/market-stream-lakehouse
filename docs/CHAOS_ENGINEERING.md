@@ -83,3 +83,17 @@ Reconciliation results from the live simulation:
 - **Late Ticks Quarantined:** 146 events
 - **Clean Trades Committed:** 4,860 unique trades
 - **Reconciliation Status:** `PASSED_ZERO_DUPLICATES_ZERO_DATA_LOSS`
+
+---
+
+## Real SIGKILL Crash Test (`src/chaos/real_crash.py`)
+
+The simulation above is in-process. A second, real test removes that caveat:
+
+1. Ingestion runs in a **separate subprocess** (`python -m src.chaos.real_crash worker`).
+2. The deduplicator's state (`seen_ids`, watermark, metrics) is **persisted to disk after every batch** (`WatermarkedDeduplicator.save_state`, atomic tmp-file replace), and committed trade ids are appended + fsynced per batch.
+3. Mid-stream the worker **kills itself with a real `SIGKILL`** — no cleanup handlers run.
+4. A fresh worker process reloads the persisted state and **replays the full stream** (at-least-once redelivery, including 200 deliberately duplicated deliveries).
+5. Reconciliation is computed on the committed list: zero duplicates (`len == len(set)`) and `committed == original unique ids` exactly.
+
+Run it: `pytest tests/test_real_crash_recovery.py -v` (POSIX only; ~2s for 1,200 events).
