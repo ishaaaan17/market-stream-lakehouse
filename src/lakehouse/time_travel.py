@@ -3,11 +3,9 @@ Lakehouse snapshot catalog and time travel interface.
 Allows querying the exact state of tables as of a specific historical snapshot or timestamp.
 """
 import json
-import time
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
-import duckdb
 from config.settings import config
 
 class SnapshotCatalog:
@@ -25,6 +23,7 @@ class SnapshotCatalog:
         return []
 
     def _save_catalog(self):
+        self.catalog_path.parent.mkdir(parents=True, exist_ok=True)
         with open(self.catalog_path, "w", encoding="utf-8") as f:
             json.dump(self.snapshots, f, indent=2)
 

@@ -2,21 +2,45 @@
 Silver Layer Pipeline: Cleansing, Validation, Schema Enforcement, and DLQ Quarantine.
 Promotes raw Bronze records to curated, conformed Silver fact tables.
 """
+import json
+import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 import pyarrow as pa
 import pyarrow.parquet as pq
-from config.settings import config
 from src.lakehouse.storage_manager import StorageManager
+from src.lakehouse.time_travel import SnapshotCatalog
 
 class SilverPipeline:
-    def __init__(self, storage_manager: StorageManager | None = None):
+    def __init__(self, storage_manager: StorageManager | None = None,
+                 silver_dir: Path | None = None, dlq_dir: Path | None = None):
         self.storage = storage_manager or StorageManager()
-        self.silver_dir = config.silver_dir
-        self.dlq_dir = config.dlq_dir
+        # Layer dirs come from the storage manager (which derives them
+        # from its base_dir), not from global config — so an isolated
+        # lakehouse (e.g. in tests) stays isolated.
+        self.silver_dir = Path(silver_dir) if silver_dir is not None else self.storage.silver_dir
+        self.dlq_dir = Path(dlq_dir) if dlq_dir is not None else self.storage.dlq_dir
         self.silver_dir.mkdir(parents=True, exist_ok=True)
         self.dlq_dir.mkdir(parents=True, exist_ok=True)
+        # Incremental processing manifest: bronze files already promoted
+        self.manifest_path = self.silver_dir / ".silver_manifest.json"
+
+    # --- incremental manifest ------------------------------------------------
+    def _load_manifest(self) -> set[str]:
+        if self.manifest_path.exists():
+            try:
+                return set(json.loads(self.manifest_path.read_text(encoding="utf-8")))
+            except Exception:
+                return set()
+        return set()
+
+    def _save_manifest(self, processed: set[str]) -> None:
+        self.manifest_path.write_text(json.dumps(sorted(processed), indent=2), encoding="utf-8")
+
+    @staticmethod
+    def _file_key(p: Path) -> str:
+        return f"{p.as_posix()}|{p.stat().st_size}"
 
     def validate_and_conform_record(self, record: dict[str, Any]) -> tuple[bool, str, dict[str, Any]]:
         """
@@ -84,9 +108,19 @@ class SilverPipeline:
         Reads unpromoted Bronze files, validates contracts, deduplicates,
         routes errors to DLQ, and commits clean data to Silver layer.
         """
-        bronze_files = self.storage.get_partition_files("bronze")
-        if not bronze_files:
+        all_bronze_files = self.storage.get_partition_files("bronze")
+        if not all_bronze_files:
             return {"status": "NO_BRONZE_DATA_FOUND", "clean_records": 0, "dlq_records": 0}
+
+        # Incremental: skip bronze files a previous run already promoted.
+        # Previously every run rescanned ALL of bronze and appended the
+        # same trades to silver again (duplicates on every re-run).
+        already = self._load_manifest()
+        bronze_files = [f for f in all_bronze_files if self._file_key(f) not in already]
+        skipped = len(all_bronze_files) - len(bronze_files)
+        if not bronze_files:
+            return {"status": "NO_NEW_BRONZE_DATA", "clean_records": 0, "dlq_records": 0,
+                    "bronze_files_scanned": 0, "bronze_files_skipped_previously_processed": skipped}
 
         clean_records = []
         dlq_records = []
@@ -113,20 +147,41 @@ class SilverPipeline:
         silver_partition = self.silver_dir / f"date={date_str}"
         silver_partition.mkdir(parents=True, exist_ok=True)
 
+        # Collision-safe filenames: microsecond timestamp + uuid suffix.
+        # (Second-resolution names collided when two runs landed in the
+        # same second, silently overwriting the previous silver file.)
+        run_id = f"{now.strftime('%H%M%S')}_{now.microsecond:06d}_{uuid.uuid4().hex[:8]}"
+
         if clean_records:
             silver_table = pa.Table.from_pylist(clean_records)
-            silver_file = silver_partition / f"silver_trades_{now.strftime('%H%M%S')}.parquet"
+            silver_file = silver_partition / f"silver_trades_{run_id}.parquet"
             pq.write_table(silver_table, silver_file, compression="snappy")
 
         # Write Dead Letter Queue records if any
         if dlq_records:
             dlq_table = pa.Table.from_pylist(dlq_records)
-            dlq_file = self.dlq_dir / f"dlq_quarantine_{now.strftime('%H%M%S')}.parquet"
+            dlq_file = self.dlq_dir / f"dlq_quarantine_{run_id}.parquet"
             pq.write_table(dlq_table, dlq_file, compression="snappy")
+
+        # Mark these bronze files as processed, and register a snapshot
+        # in the lakehouse catalog (wires SnapshotCatalog into the pipeline).
+        already.update(self._file_key(f) for f in bronze_files)
+        self._save_manifest(already)
+        try:
+            catalog = SnapshotCatalog(catalog_path=self.silver_dir.parent / "snapshots_metadata.json")
+            catalog.register_snapshot(
+                layer="silver",
+                row_count=len(clean_records),
+                file_count=1 if clean_records else 0,
+                operation="bronze_to_silver",
+            )
+        except Exception:
+            pass  # snapshot registration must never break the pipeline
 
         return {
             "status": "SUCCESS",
             "bronze_files_scanned": len(bronze_files),
+            "bronze_files_skipped_previously_processed": skipped,
             "clean_records": len(clean_records),
             "dlq_records": len(dlq_records),
             "unique_trades_committed": len(seen_trades),

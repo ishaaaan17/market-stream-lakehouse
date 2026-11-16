@@ -23,7 +23,7 @@ class LakehouseQueryEngine:
 
     def get_vwap_curve(self, ticker: str = "AAPL") -> pd.DataFrame:
         """Retrieves intraday VWAP curve for a specified instrument."""
-        vwap_path = config.gold_dir / "agg_intraday_vwap.parquet"
+        vwap_path = self.storage.gold_dir / "agg_intraday_vwap.parquet"
         if not vwap_path.exists():
             return pd.DataFrame()
 
@@ -38,7 +38,7 @@ class LakehouseQueryEngine:
 
     def get_venue_liquidity_summary(self) -> pd.DataFrame:
         """Summarizes traded liquidity and slippage across execution venues."""
-        venue_path = config.gold_dir / "dim_venues.parquet"
+        venue_path = self.storage.gold_dir / "dim_venues.parquet"
         if not venue_path.exists():
             return pd.DataFrame()
 

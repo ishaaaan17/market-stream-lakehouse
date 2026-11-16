@@ -9,11 +9,14 @@ from config.settings import config
 
 class StorageManager:
     def __init__(self, base_dir: Path | None = None):
-        self.base_dir = base_dir or config.data_dir
-        self.bronze_dir = config.bronze_dir
-        self.silver_dir = config.silver_dir
-        self.gold_dir = config.gold_dir
-        self.dlq_dir = config.dlq_dir
+        # Layer dirs are DERIVED from base_dir. Previously base_dir was
+        # accepted but ignored (config dirs were always used), which made
+        # isolated test lakehouses impossible — tests polluted real data/.
+        self.base_dir = Path(base_dir) if base_dir is not None else config.data_dir
+        self.bronze_dir = self.base_dir / "bronze"
+        self.silver_dir = self.base_dir / "silver"
+        self.gold_dir = self.base_dir / "gold"
+        self.dlq_dir = self.base_dir / "dlq"
 
     def get_partition_files(self, layer: str, partition_path: str = "") -> list[Path]:
         """Returns all Parquet files within a specific layer and subpartition."""
