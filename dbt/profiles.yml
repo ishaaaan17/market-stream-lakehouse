@@ -1,0 +1,9 @@
+market_stream_lakehouse:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      # Local DuckDB file for the dbt-built marts. Override with DBT_DUCKDB_PATH.
+      path: "{{ env_var('DBT_DUCKDB_PATH', 'market_stream_lakehouse.duckdb') }}"
+      schema: main
+      threads: 4

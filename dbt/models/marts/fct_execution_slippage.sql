@@ -1,4 +1,9 @@
 -- Gold layer: Execution slippage benchmarking against arrival mid quote
+-- NOTE ON NAMING: this dbt model is an AGGREGATED summary (one row per
+-- venue/ticker/order_type/side). The Python gold path writes a mart with
+-- the same name (src/transforms/gold_marts.py) that is PER-TRADE ATOMIC.
+-- They are two views of the same data at different grains — do not join
+-- them expecting the same row count.
 SELECT
     venue,
     ticker,

@@ -1,0 +1,5 @@
+# dbt is optional: the Python pipeline in src/ does not need it.
+# Install separately to build the SQL marts in dbt/:
+#   pip install -r requirements-dbt.txt
+dbt-core>=1.8.0
+dbt-duckdb>=1.8.0

@@ -24,3 +24,10 @@ data/dlq/*
 # OS
 .DS_Store
 Thumbs.db
+
+# dbt artifacts
+dbt/target/
+dbt/logs/
+*.duckdb
+dbt/.user.yml
+data/snapshots_metadata.json
