@@ -36,7 +36,7 @@ The **MarketStream Lakehouse** is an institutional-grade financial event-streami
 ### 2.1 Multi-Threaded Ingestion Buffering (`StreamBuffer`)
 The ingestion layer decouples network socket / message broker receipt from disk persistence:
 - **Thread Safety:** Implements reentrant mutex locks around internal circular double-ended queues (`collections.deque`).
-- **Backpressure & Lag Tracking:** Continuously monitors `queue_depth_lag` (number of unacknowledged events awaiting disk commit). If lag exceeds `maxsize`, backpressure signals the load generator to pace dispatch.
+- **Backpressure & Lag Tracking:** Continuously monitors `queue_depth_lag` (number of unacknowledged events awaiting disk commit). The buffer is bounded at `maxsize`: when full, `enqueue_many` refuses further events, returns the count actually accepted, and increments `total_dropped` in `stats()` — producers use that signal to pace dispatch. Events are never silently evicted.
 
 ### 2.2 Event-Time Watermarking (`WatermarkedDeduplicator`)
 Because market feeds arrive across distributed exchange cross-connects (NASDAQ, NYSE, BATS, IEX), arrival timestamps do not match event generation timestamps.
