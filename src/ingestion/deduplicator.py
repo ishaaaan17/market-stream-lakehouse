@@ -2,7 +2,9 @@
 Event-time watermarking and deterministic stream deduplication.
 Ensures at-least-once streaming delivery achieves Exactly-Once state in the lakehouse.
 """
+import json
 from datetime import datetime, timezone, timedelta
+from pathlib import Path
 from typing import Any
 from collections import OrderedDict
 
@@ -16,17 +18,21 @@ class WatermarkedDeduplicator:
             "processed_events": 0,
             "deduplicated_events": 0,
             "late_events_quarantined": 0,
+            "invalid_timestamp_quarantined": 0,
             "accepted_events": 0,
         }
 
-    def _parse_time(self, ts_str: str) -> datetime:
+    def _parse_time(self, ts_str: str) -> datetime | None:
+        """Parses an ISO timestamp. Returns None on failure — a corrupt
+        timestamp must be quarantined, never silently replaced with 'now'
+        (that would let malformed events pass the watermark check)."""
         try:
             dt = datetime.fromisoformat(ts_str)
             if dt.tzinfo is None:
                 dt = dt.replace(tzinfo=timezone.utc)
             return dt
         except Exception:
-            return datetime.now(timezone.utc)
+            return None
 
     def process_event(self, event: dict[str, Any]) -> tuple[bool, str]:
         """
@@ -39,6 +45,9 @@ class WatermarkedDeduplicator:
             return False, "MISSING_PRIMARY_KEY"
 
         event_time = self._parse_time(event.get("event_timestamp", ""))
+        if event_time is None:
+            self.metrics["invalid_timestamp_quarantined"] += 1
+            return False, "INVALID_EVENT_TIMESTAMP"
 
         # Update high-water mark monotonically
         if event_time > self.current_watermark:
@@ -82,3 +91,34 @@ class WatermarkedDeduplicator:
 
     def get_metrics(self) -> dict[str, Any]:
         return dict(self.metrics)
+
+    # --- State persistence (crash recovery) ---------------------------------
+    # Exactly-once after a real crash is only possible if the dedup state
+    # survives the process. save_state/load_state persist seen_ids, the
+    # watermark and metrics to a JSON file on disk.
+
+    def save_state(self, path: Path | str) -> None:
+        state = {
+            "seen_ids": {tid: ts.isoformat() for tid, ts in self.seen_ids.items()},
+            "current_watermark": self.current_watermark.isoformat(),
+            "metrics": dict(self.metrics),
+        }
+        p = Path(path)
+        p.parent.mkdir(parents=True, exist_ok=True)
+        tmp = p.with_suffix(p.suffix + ".tmp")
+        tmp.write_text(json.dumps(state), encoding="utf-8")
+        tmp.replace(p)  # atomic on the same filesystem
+
+    def load_state(self, path: Path | str) -> bool:
+        p = Path(path)
+        if not p.exists():
+            return False
+        state = json.loads(p.read_text(encoding="utf-8"))
+        self.seen_ids = OrderedDict(
+            (tid, datetime.fromisoformat(ts)) for tid, ts in state["seen_ids"].items()
+        )
+        self.current_watermark = datetime.fromisoformat(state["current_watermark"])
+        for k, v in state.get("metrics", {}).items():
+            if k in self.metrics:
+                self.metrics[k] = v
+        return True
