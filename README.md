@@ -1,15 +1,4 @@
-# ⚡ MarketStream Lakehouse
-
-<p align="center">
-  <img src="lakehouse-architecture.svg" alt="MarketStream Lakehouse Architecture" width="100%" />
-</p>
-
-[![CI](https://github.com/ishaaaan17/market-stream-lakehouse/actions/workflows/ci.yml/badge.svg)](https://github.com/ishaaaan17/market-stream-lakehouse/actions/workflows/ci.yml)
-[![Python](https://img.shields.io/badge/Python-3.13+-0d1117?style=for-the-badge&logo=python)](https://python.org)
-[![DuckDB](https://img.shields.io/badge/DuckDB-1.1+-FFF000?style=for-the-badge&logo=duckdb&logoColor=black)](https://duckdb.org)
-[![Parquet](https://img.shields.io/badge/Storage-Parquet-58a6ff?style=for-the-badge)](https://parquet.apache.org)
-[![dbt](https://img.shields.io/badge/dbt-Dimensional%20Marts-FF694B?style=for-the-badge&logo=dbt&logoColor=white)](https://getdbt.com)
-[![Docker](https://img.shields.io/badge/Docker-Redpanda%20%2B%20MinIO-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://docker.com)
+# MarketStream Lakehouse — High-Throughput Streaming Ingestion (Python) + Medallion Lakehouse (DuckDB / Parquet / dbt)
 
 ## System Overview
 
@@ -100,7 +89,61 @@ The core pipeline runs on an in-process `StreamBuffer`, so it needs no broker to
 
 ## 🛠️ System Architecture Diagram
 
-The diagram at the top of this README (`lakehouse-architecture.svg`) traces one event through the system: **Market Feed → Redpanda/Kafka → Watermarked Dedup → Chaos-tested commit → Bronze → (compaction) → Silver + DLQ → Gold (dbt)**. Every label and number on it comes from `docs/BENCHMARKS.md` or `config/settings.py`.
+```
+                        ┌───────────────────────────────────┐
+                        │       Market Feed Generator        │
+                        │  5 venues · 10 symbols · slippage  │
+                        └─────────────────┬─────────────────┘
+                                          │
+                        ┌─────────────────▼─────────────────┐
+                        │          Anomaly Injector          │
+                        │  4% duplicates · 3% late (45–120s) │
+                        │  0.5% malformed rows               │
+                        └─────────────────┬─────────────────┘
+                                          │
+            ┌─────────────────────────────▼─────────────────────────────┐
+            │  StreamBuffer  (or Redpanda/Kafka via kafka_consumer.py)   │
+            │  micro-batches · consumer lag / backpressure metrics       │
+            └─────────────────────────────┬─────────────────────────────┘
+                                          │
+            ┌─────────────────────────────▼─────────────────────────────┐
+            │            Watermarked Deduplicator                        │
+            │  30s event-time watermark · in-memory seen trade_id set    │
+            │  duplicates → rejected · too-late → quarantined            │
+            │  state persisted to disk (save_state / load_state)         │
+            └─────────────────────────────┬─────────────────────────────┘
+                                          │ clean, unique, in-window
+        ┌─────────────────────────────────▼─────────────────────────────────┐
+        │  BRONZE — append-only Parquet micro-batches                        │
+        │  partitions: date=YYYY-MM-DD / hour=HH                             │
+        └─────────────────────────────────┬─────────────────────────────────┘
+                                          │
+            ┌─────────────────────────────▼─────────────────────────────┐
+            │            Compaction Worker (async)                       │
+            │  ≥4 files or <5 MB → one ~128 MB dictionary-encoded file   │
+            │  measured: scan 13.98 ms → 2.77 ms (5.05x)                 │
+            └─────────────────────────────┬─────────────────────────────┘
+                                          │
+            ┌─────────────────────────────▼─────────────────────────────┐
+            │  SILVER — conformed trade fact                             │
+            │  price > 0 · qty > 0 · unique trade_id                     │
+            │  failures ─────────────────────►  Dead-Letter Queue (DLQ)  │
+            └─────────────────────────────┬─────────────────────────────┘
+                                          │
+        ┌─────────────────────────────────▼─────────────────────────────────┐
+        │  GOLD — Kimball marts (Python/DuckDB and dbt — same models)        │
+        │  agg_intraday_vwap (1-min & 5-min) · fct_trade_executions          │
+        │  fct_execution_slippage · dim_instruments · dim_venues             │
+        └─────────────────────────────────┬─────────────────────────────────┘
+                                          │
+                            DuckDB SQL  ·  Streamlit Dashboard
+
+  Chaos tests (src/chaos/): an in-process crash simulation and a real
+  subprocess SIGKILL test both replay the full stream against the
+  deduplicator and verify, by computed reconciliation, that
+  committed ∪ quarantined == the original unique trade IDs —
+  0 duplicates, 0 lost.
+```
 
 ---
 
@@ -161,7 +204,6 @@ market-stream-lakehouse/
 ├── dashboard.py                     # Streamlit real-time lakehouse telemetry console
 ├── docker-compose.yml               # Redpanda + MinIO + dashboard stack
 ├── Dockerfile                       # Dashboard container definition
-├── lakehouse-architecture.svg       # Dark-theme architectural diagram
 └── LICENSE                          # MIT
 ```
 
