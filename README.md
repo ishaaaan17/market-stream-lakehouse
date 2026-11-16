@@ -90,59 +90,67 @@ The core pipeline runs on an in-process `StreamBuffer`, so it needs no broker to
 ## 🛠️ System Architecture Diagram
 
 ```
-                        ┌───────────────────────────────────┐
-                        │       Market Feed Generator        │
-                        │  5 venues · 10 symbols · slippage  │
-                        └─────────────────┬─────────────────┘
-                                          │
-                        ┌─────────────────▼─────────────────┐
-                        │          Anomaly Injector          │
-                        │  4% duplicates · 3% late (45–120s) │
-                        │  0.5% malformed rows               │
-                        └─────────────────┬─────────────────┘
-                                          │
-            ┌─────────────────────────────▼─────────────────────────────┐
-            │  StreamBuffer  (or Redpanda/Kafka via kafka_consumer.py)   │
-            │  micro-batches · consumer lag / backpressure metrics       │
-            └─────────────────────────────┬─────────────────────────────┘
-                                          │
-            ┌─────────────────────────────▼─────────────────────────────┐
-            │            Watermarked Deduplicator                        │
-            │  30s event-time watermark · in-memory seen trade_id set    │
-            │  duplicates → rejected · too-late → quarantined            │
-            │  state persisted to disk (save_state / load_state)         │
-            └─────────────────────────────┬─────────────────────────────┘
-                                          │ clean, unique, in-window
-        ┌─────────────────────────────────▼─────────────────────────────────┐
-        │  BRONZE — append-only Parquet micro-batches                        │
-        │  partitions: date=YYYY-MM-DD / hour=HH                             │
-        └─────────────────────────────────┬─────────────────────────────────┘
-                                          │
-            ┌─────────────────────────────▼─────────────────────────────┐
-            │            Compaction Worker (async)                       │
-            │  ≥4 files or <5 MB → one ~128 MB dictionary-encoded file   │
-            │  measured: scan 13.98 ms → 2.77 ms (5.05x)                 │
-            └─────────────────────────────┬─────────────────────────────┘
-                                          │
-            ┌─────────────────────────────▼─────────────────────────────┐
-            │  SILVER — conformed trade fact                             │
-            │  price > 0 · qty > 0 · unique trade_id                     │
-            │  failures ─────────────────────►  Dead-Letter Queue (DLQ)  │
-            └─────────────────────────────┬─────────────────────────────┘
-                                          │
-        ┌─────────────────────────────────▼─────────────────────────────────┐
-        │  GOLD — Kimball marts (Python/DuckDB and dbt — same models)        │
-        │  agg_intraday_vwap (1-min & 5-min) · fct_trade_executions          │
-        │  fct_execution_slippage · dim_instruments · dim_venues             │
-        └─────────────────────────────────┬─────────────────────────────────┘
-                                          │
-                            DuckDB SQL  ·  Streamlit Dashboard
+┌──────────────────────────────────────────────────────────────────┐
+│                      Market Feed Generator                       │
+│ 5 venues · 10 symbols · arrival pricing + slippage               │
+└──────────────────────────────────────────────────────────────────┘
+                                 │
+                                 ▼
+┌──────────────────────────────────────────────────────────────────┐
+│                         Anomaly Injector                         │
+│ 4% duplicates · 3% late (45-120s lag) · 0.5% malformed           │
+└──────────────────────────────────────────────────────────────────┘
+                                 │
+                                 ▼
+┌──────────────────────────────────────────────────────────────────┐
+│     StreamBuffer  (or Redpanda/Kafka via kafka_consumer.py)      │
+│ micro-batches · consumer lag / backpressure metrics              │
+└──────────────────────────────────────────────────────────────────┘
+                                 │
+                                 ▼
+┌──────────────────────────────────────────────────────────────────┐
+│                     Watermarked Deduplicator                     │
+│ 30s event-time watermark · in-memory seen trade_id set           │
+│ duplicates -> rejected · too-late -> quarantined (counted)       │
+│ state persisted to disk: save_state() / load_state()             │
+└──────────────────────────────────────────────────────────────────┘
+                                 │
+                                 │ clean, unique, in-window
+                                 ▼
+┌──────────────────────────────────────────────────────────────────┐
+│            BRONZE — append-only Parquet micro-batches            │
+│ partitions: date=YYYY-MM-DD / hour=HH                            │
+└──────────────────────────────────────────────────────────────────┘
+                                 │
+                                 ▼
+┌──────────────────────────────────────────────────────────────────┐
+│                    Compaction Worker (async)                     │
+│ >=4 files or <5 MB -> one ~128 MB dictionary-encoded file        │
+│ measured: DuckDB scan 13.98 ms -> 2.77 ms (5.05x)                │
+└──────────────────────────────────────────────────────────────────┘
+                                 │
+                                 ▼
+┌──────────────────────────────────────────────────────────────────┐
+│                  SILVER — conformed trade fact                   │
+│ price > 0 · qty > 0 · unique trade_id · non-null IDs             │
+│ failures ----------> Dead-Letter Queue (data/dlq/)               │
+└──────────────────────────────────────────────────────────────────┘
+                                 │
+                                 ▼
+┌──────────────────────────────────────────────────────────────────┐
+│    GOLD — Kimball marts (Python/DuckDB and dbt, same models)     │
+│ agg_intraday_vwap (1-min & 5-min) · fct_trade_executions         │
+│ fct_execution_slippage · dim_instruments · dim_venues            │
+└──────────────────────────────────────────────────────────────────┘
+                                 │
+                                 ▼
+                 DuckDB SQL  ·  Streamlit Dashboard                 
 
-  Chaos tests (src/chaos/): an in-process crash simulation and a real
-  subprocess SIGKILL test both replay the full stream against the
-  deduplicator and verify, by computed reconciliation, that
-  committed ∪ quarantined == the original unique trade IDs —
-  0 duplicates, 0 lost.
+Chaos tests (src/chaos/): an in-process crash simulation and a real
+subprocess SIGKILL test both replay the full stream against the
+deduplicator and verify, by computed reconciliation, that
+committed + quarantined == the original unique trade IDs:
+0 duplicates, 0 lost.
 ```
 
 ---
