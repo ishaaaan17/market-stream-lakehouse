@@ -6,3 +6,6 @@ altair>=5.0.0
 pydantic>=2.8.0
 pytest>=8.3.0
 rich>=13.7.0
+# Optional: only needed for the real Redpanda/Kafka consumer
+# (src/ingestion/kafka_consumer.py). The pipeline and tests run without it.
+# kafka-python>=2.0.2

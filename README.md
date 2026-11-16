@@ -91,7 +91,8 @@ market-stream-lakehouse/
 │   ├── ingestion/
 │   │   ├── stream_buffer.py         # Sharded streaming buffer with consumer lag metrics
 │   │   ├── deduplicator.py          # State-backed watermarking & idempotent deduplication
-│   │   └── bronze_writer.py         # Append-only micro-batch Parquet writer
+│   │   ├── bronze_writer.py         # Append-only micro-batch Parquet writer
+│   │   └── kafka_consumer.py        # Optional Redpanda/Kafka consumer (commit after processing)
 │   ├── lakehouse/
 │   │   ├── storage_manager.py       # Medallion partitioning & layer stats inspector
 │   │   ├── compaction_worker.py     # Asynchronous small-file compaction engine
