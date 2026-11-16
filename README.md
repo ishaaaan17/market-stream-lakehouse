@@ -42,7 +42,7 @@ Every metric in this repository is measured directly from automated benchmarks a
 ## 🏗️ Architectural Deep Dive
 
 ### 1. Ingestion & Event-Time Watermarking (`src/ingestion/`)
-- **Producer (`MarketFeedGenerator`):** Simulates institutional multi-venue execution reports across 10 high-liquidity symbols (`AAPL`, `NVDA`, `MSFT`, `GOOGL`, `AMZN`, etc.) with arrival benchmark pricing and execution slippage.
+- **Producer (`MarketFeedGenerator`):** Simulates institutional execution reports across **5 execution venues** (`XNAS`, `XNYS`, `BATS`, `ARCA`, `IEXG` — see `config/settings.py`) and 10 high-liquidity symbols (`AAPL`, `NVDA`, `MSFT`, `GOOGL`, `AMZN`, etc.) with arrival benchmark pricing and execution slippage.
 - **Chaos Injection (`AnomalyInjector`):** Systematically injects 4% duplicate primary keys, 3% late-arriving events lagging by 45–120 seconds, and 0.5% corrupt schemas to validate resilience.
 - **Watermarking Engine (`WatermarkedDeduplicator`):**
   - Maintains a monotonic high-water mark based on event timestamp (`event_timestamp`).
