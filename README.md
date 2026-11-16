@@ -4,11 +4,10 @@
   <img src="lakehouse-architecture.svg" alt="MarketStream Lakehouse Architecture" width="100%" />
 </p>
 
-[![CI Pipeline](https://img.shields.io/badge/CI-Passing-3fb950?style=for-the-badge&logo=githubactions&logoColor=white)](https://github.com/ishaaaan17/market-stream-lakehouse)
+[![CI](https://github.com/ishaaaan17/market-stream-lakehouse/actions/workflows/ci.yml/badge.svg)](https://github.com/ishaaaan17/market-stream-lakehouse/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/Python-3.13+-0d1117?style=for-the-badge&logo=python)](https://python.org)
 [![DuckDB](https://img.shields.io/badge/DuckDB-1.1+-FFF000?style=for-the-badge&logo=duckdb&logoColor=black)](https://duckdb.org)
-[![Polars](https://img.shields.io/badge/Polars-2.0+-00599C?style=for-the-badge&logo=polars&logoColor=white)](https://pola.rs)
-[![Apache Iceberg](https://img.shields.io/badge/Lakehouse-Parquet%20%2F%20Iceberg-58a6ff?style=for-the-badge)](https://iceberg.apache.org)
+[![Parquet](https://img.shields.io/badge/Storage-Parquet-58a6ff?style=for-the-badge)](https://parquet.apache.org)
 [![dbt](https://img.shields.io/badge/dbt-Dimensional%20Marts-FF694B?style=for-the-badge&logo=dbt&logoColor=white)](https://getdbt.com)
 [![Docker](https://img.shields.io/badge/Docker-Redpanda%20%2B%20MinIO-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://docker.com)
 
