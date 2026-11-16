@@ -1,1 +1,238 @@
-IyDimqEgTWFya2V0U3RyZWFtIExha2Vob3VzZQoKPHAgYWxpZ249ImNlbnRlciI+CiAgPGltZyBzcmM9Imxha2Vob3VzZS1hcmNoaXRlY3R1cmUuc3ZnIiBhbHQ9Ik1hcmtldFN0cmVhbSBMYWtlaG91c2UgQXJjaGl0ZWN0dXJlIiB3aWR0aD0iMTAwJSIgLz4KPC9wPgoKWyFbQ0ldKGh0dHBzOi8vZ2l0aHViLmNvbS9pc2hhYWFhbjE3L21hcmtldC1zdHJlYW0tbGFrZWhvdXNlL2FjdGlvbnMvd29ya2Zsb3dzL2NpLnltbC9iYWRnZS5zdmcpXShodHRwczovL2dpdGh1Yi5jb20vaXNoYWFhYW4xNy9tYXJrZXQtc3RyZWFtLWxha2Vob3VzZS9hY3Rpb25zL3dvcmtmbG93cy9jaS55bWwpClshW1B5dGhvbl0oaHR0cHM6Ly9pbWcuc2hpZWxkcy5pby9iYWRnZS9QeXRob24tMy4xMystMGQxMTE3P3N0eWxlPWZvci10aGUtYmFkZ2UmbG9nbz1weXRob24pXShodHRwczovL3B5dGhvbi5vcmcpClshW0R1Y2tEQl0oaHR0cHM6Ly9pbWcuc2hpZWxkcy5pby9iYWRnZS9EdWNrREItMS4xKy1GRkYwMDA/c3R5bGU9Zm9yLXRoZS1iYWRnZSZsb2dvPWR1Y2tkYiZsb2dvQ29sb3I9YmxhY2spXShodHRwczovL2R1Y2tkYi5vcmcpClshW1BhcnF1ZXRdKGh0dHBzOi8vaW1nLnNoaWVsZHMuaW8vYmFkZ2UvU3RvcmFnZS1QYXJxdWV0LTU4YTZmZj9zdHlsZT1mb3ItdGhlLWJhZGdlKV0oaHR0cHM6Ly9wYXJxdWV0LmFwYWNoZS5vcmcpClshW2RidF0oaHR0cHM6Ly9pbWcuc2hpZWxkcy5pby9iYWRnZS9kYnQtRGltZW5zaW9uYWwlMjBNYXJ0cy1GRjY5NEI/c3R5bGU9Zm9yLXRoZS1iYWRnZSZsb2dvPWRidCZsb2dvQ29sb3I9d2hpdGUpXShodHRwczovL2dldGRidC5jb20pClshW0RvY2tlcl0oaHR0cHM6Ly9pbWcuc2hpZWxkcy5pby9iYWRnZS9Eb2NrZXItUmVkcGFuZGElMjAlMkIlMjBNaW5JTy0yNDk2RUQ/c3R5bGU9Zm9yLXRoZS1iYWRnZSZsb2dvPWRvY2tlciZsb2dvQ29sb3I9d2hpdGUpXShodHRwczovL2RvY2tlci5jb20pCgojIyBTeXN0ZW0gT3ZlcnZpZXcKCk1hcmtldFN0cmVhbSBpcyBhIHN0cmVhbWluZyBkYXRhIHBsYXRmb3JtIGZvciBmaW5hbmNpYWwgbWFya2V0IGV4ZWN1dGlvbnM6IGEgaGlnaC10aHJvdWdocHV0IGluZ2VzdGlvbiBwaXBlbGluZSB3aXRoIGV2ZW50LXRpbWUgd2F0ZXJtYXJraW5nIGFuZCBpZGVtcG90ZW50IGRlZHVwbGljYXRpb24sIGZlZWRpbmcgYSBCcm9uemUg4oaSIFNpbHZlciDihpIgR29sZCBtZWRhbGxpb24gbGFrZWhvdXNlIG9mIFBhcnF1ZXQgZmlsZXMgcXVlcmllZCB3aXRoIER1Y2tEQiwgd2l0aCBhIGRidCBwcm9qZWN0IG1vZGVsbGluZyB0aGUgc2FtZSBHb2xkIG1hcnRzIGluIFNRTC4KClRoZSBmZWVkIGlzICoqc2ltdWxhdGVkKiog4oCUIGEgZ2VuZXJhdG9yIHByb2R1Y2luZyBleGVjdXRpb24gcmVwb3J0cyBhY3Jvc3MgKio1IHZlbnVlcyoqIChgWE5BU2AsIGBYTllTYCwgYEJBVFNgLCBgQVJDQWAsIGBJRVhHYCkgYW5kIDEwIHN5bWJvbHMsIHdpdGggYW4gYW5vbWFseSBpbmplY3RvciB0aGF0IGRlbGliZXJhdGVseSBjb3JydXB0cyBpdCAoZHVwbGljYXRlcywgbGF0ZSBhcnJpdmFscywgbWFsZm9ybWVkIHJvd3MpLiBUaGF0IGlzIGEgZGVsaWJlcmF0ZSBjaG9pY2UsIG5vdCBhIHNob3J0Y3V0OiB0aGUgc3lzdGVtIHVuZGVyIHRlc3QgaXMgdGhlICpwaXBlbGluZSosIGFuZCBhIGdlbmVyYXRvciBtYWtlcyB0aGUgdGhyZWUgZmFpbHVyZSBtb2RlcyB0aGF0IGJyZWFrIHJlYWwgbGFrZWhvdXNlcyByZXByb2R1Y2libGUgb24gZGVtYW5kOgoKMS4gKipUaGUgc21hbGwtZmlsZSBwcm9ibGVtKiog4oCUIHN0cmVhbWluZyBtaWNyby1iYXRjaGVzIHdyaXRlIG1hbnkgdGlueSBQYXJxdWV0IGZpbGVzIHBlciBwYXJ0aXRpb24sIGFuZCBhbmFseXRpY2FsIHNjYW5zIGRlZ3JhZGUgYXMgZmlsZSBjb3VudHMgZ3Jvdy4KMi4gKipBdC1sZWFzdC1vbmNlIGR1cGxpY2F0ZXMqKiDigJQgYnJva2VyIHJldHJpZXMgYW5kIGNvbnN1bWVyIGNyYXNoZXMgcmVwbGF5IG1lc3NhZ2VzOyBhIG5haXZlIGxha2Vob3VzZSBpbmdlc3RzIHBoYW50b20gdHJhZGVzIGFuZCBjb3JydXB0cyBWV0FQIGN1cnZlcyBhbmQgbGVkZ2Vycy4KMy4gKipPdXQtb2Ytb3JkZXIgYW5kIGxhdGUgdGlja3MqKiDigJQgZXZlbnRzIGZyb20gZGlmZmVyZW50IHZlbnVlcyBhcnJpdmUgd2l0aCBub24tZGV0ZXJtaW5pc3RpYyBkZWxheXM7IHdpdGhvdXQgYW4gZXZlbnQtdGltZSB3YXRlcm1hcmssIHN0YXRlZnVsIHByb2Nlc3NpbmcgZWl0aGVyIGRyb3BzIHZhbGlkIHRyYWRlcyBvciBhY2NlcHRzIGFyYml0cmFyaWx5IHN0YWxlIG9uZXMuCgpFdmVyeSBudW1iZXIgaW4gdGhpcyBSRUFETUUgaXMgbWVhc3VyZWQgYnkgdGhlIHNjcmlwdHMgaW4gYGJlbmNobWFya3MvYCBhbmQgcmVjb3JkZWQgaW4gYGRvY3MvQkVOQ0hNQVJLUy5tZGAg4oCUIG5vdGhpbmcgaXMgZXN0aW1hdGVkIG9yIGNvcGllZCBmcm9tIGFub3RoZXIgcHJvamVjdCdzIGRvY3VtZW50YXRpb24uCgojIyBSZXN1bHRzCgp8IFBpcGVsaW5lIGRpbWVuc2lvbiB8IE1lYXN1cmVkIHwgV2hhdCBpdCBtZWFucyB8CnwtLS18LS0tfC0tLXwKfCBQcm9kdWNlciB0aHJvdWdocHV0IHwgKio4MSwxOTYgZXZlbnRzL3NlYyoqIHwgMTA0LDEwOCBldmVudHMgZ2VuZXJhdGVkIGFuZCBlbnF1ZXVlZCBpbiAxLjI4MiBzIHwKfCBDb25zdW1lciBkcmFpbiArIGRlZHVwIHJhdGUgfCAqKjc1MCw1NjQgZXZlbnRzL3NlYyoqIHwgVGhlIHNhbWUgMTA0LDEwOCBldmVudHMgdmFsaWRhdGVkIGFuZCBzdGF0ZS1jaGVja2VkIGluIDAuMTM5IHMg4oCUICoqfjkuMnggZmFzdGVyIHRoYW4gcHJvZHVjdGlvbioqLCBzbyB0aGUgY29uc3VtZXIgZHJhaW5zIGJ1cnN0IGJhY2twcmVzc3VyZSBpbnN0ZWFkIG9mIGZhbGxpbmcgYmVoaW5kIHwKfCBDb21wYWN0aW9uIHNjYW4gYWNjZWxlcmF0aW9uIHwgKio1LjA1eCBmYXN0ZXIqKiB8IER1Y2tEQiBzY2FuIG92ZXIgb25lIHBhcnRpdGlvbjogKioxMy45OCBtcyDihpIgMi43NyBtcyoqIGFmdGVyIGNvbnNvbGlkYXRpbmcgNDAgc21hbGwgZmlsZXMgaW50byAxIHwKfCBTdG9yYWdlIHJlZHVjdGlvbiBmcm9tIGNvbXBhY3Rpb24gfCAqKjE4Ljk0JSoqIHwgRGljdGlvbmFyeSBlbmNvZGluZyArIGNvbnNvbGlkYXRlZCByb3cgZ3JvdXBzIHZzLiBmcmFnbWVudGVkIG1pY3JvLWJhdGNoZXMgfAp8IFdvcmtlci1jcmFzaCBmYXVsdCB0b2xlcmFuY2UgfCAqKjAgZHVwbGljYXRlcyDCtyAwIGxvc3QgcmVjb3JkcyoqIHwgVmVyaWZpZWQgdHdvIGluZGVwZW5kZW50IHdheXMg4oCUIHNlZSAqRXhhY3RseS1PbmNlLCBQcm92ZW4gVHdpY2UqIGJlbG93IHwKCk9uZSBmdWxsIGJlbmNobWFyayBydW4sIGVuZCB0byBlbmQgKDEwMCwwMDAgZ2VuZXJhdGVkIHRyYWRlcyArIGluamVjdGVkIGFub21hbGllcyA9ICoqMTA0LDEwOCBldmVudHMqKik6Cgp8IE91dGNvbWUgfCBFdmVudHMgfAp8LS0tfC0tLXwKfCBEdXBsaWNhdGVzIGJsb2NrZWQgYnkgdGhlIGRlZHVwbGljYXRvciB8IDMsOTkwIHwKfCBMYXRlIHRpY2tzIHF1YXJhbnRpbmVkIChwYXN0IHRoZSAzMCBzIHdhdGVybWFyaykgfCAzLDA5MiB8CnwgQ2xlYW4gdHJhZGVzIGNvbW1pdHRlZCB0byB0aGUgbGFrZWhvdXNlIHwgOTcsMDI2IHwKClRoZSBkYnQgcHJvamVjdCBidWlsZHMgY2xlYW4gYWdhaW5zdCB0aGUgc2FtZSBkYXRhOiBgZGJ0IGJ1aWxkYCDihpIgKipQQVNTPTE3KiogKG1vZGVscyArIGRhdGEgdGVzdHMpLgoKUmVwcm9kdWNlIGV2ZXJ5dGhpbmc6CgpgYGBiYXNoCnB5dGhvbiBiZW5jaG1hcmtzL2JlbmNobWFya190aHJvdWdocHV0LnB5ICAgIyBFUFMsIGxhZywgZGVkdXAvcXVhcmFudGluZSBjb3VudHMKcHl0aG9uIGJlbmNobWFya3MvYmVuY2htYXJrX2NvbXBhY3Rpb24ucHkgICAjIHNjYW4gbGF0ZW5jeSBiZWZvcmUgdnMuIGFmdGVyIGNvbXBhY3Rpb24KcHl0ZXN0ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAjIDE0IHRlc3RzLCBpbmNsLiB0aGUgcmVhbCBTSUdLSUxMIHJlY292ZXJ5IHRlc3QKYGBgCgotLS0KCiMjIPCfmoAgQ29yZSBBcmNoaXRlY3R1cmFsIEZlYXR1cmVzCgojIyMgU2ltdWxhdGVkIEZlZWQgKyBBbm9tYWx5IEluamVjdGlvbiAoYHNyYy9nZW5lcmF0b3IvYCkKCmBNYXJrZXRGZWVkR2VuZXJhdG9yYCBlbWl0cyBleGVjdXRpb24gcmVwb3J0cyB3aXRoIGFycml2YWwtYmVuY2htYXJrIHByaWNpbmcgYW5kIGV4ZWN1dGlvbiBzbGlwcGFnZSBhY3Jvc3MgdGhlIDUgdmVudWVzIGFuZCAxMCBzeW1ib2xzLiBgQW5vbWFseUluamVjdG9yYCB0aGVuIGNvcnJ1cHRzIHRoZSBzdHJlYW0gYXQgZml4ZWQsIGRlY2xhcmVkIHJhdGVzIOKAlCAqKjQlIGR1cGxpY2F0ZSB0cmFkZSBJRHMsIDMlIGxhdGUgYXJyaXZhbHMgbGFnZ2luZyA0NeKAkzEyMCBzLCAwLjUlIG1hbGZvcm1lZCByb3dzKiogKG5lZ2F0aXZlIHByaWNlcywgZW1wdHkgdGlja2VycykuIEJlY2F1c2UgdGhlIGNvcnJ1cHRpb24gcmF0ZXMgYXJlIGtub3duLCB0aGUgcGlwZWxpbmUncyBvdXRwdXRzIGFyZSBjaGVja2FibGUgZXhhY3RseTogdGhlIGJlbmNobWFyayBydW4gYWJvdmUgKm11c3QqIGJsb2NrIOKJiDQlIGFzIGR1cGxpY2F0ZXMgYW5kIHF1YXJhbnRpbmUgdGhlIGxhdGUgYXJyaXZhbHMgdGhhdCBmYWxsIG91dHNpZGUgdGhlIHdhdGVybWFyayB3aW5kb3csIGFuZCBpdCBkb2VzICgzLDk5MCBhbmQgMywwOTIpLgoKIyMjIFdhdGVybWFya2VkIERlZHVwbGljYXRvciAoYHNyYy9pbmdlc3Rpb24vZGVkdXBsaWNhdG9yLnB5YCkKClRoZSBkZWR1cGxpY2F0b3IgaXMgd2hlcmUgY29ycmVjdG5lc3MgbGl2ZXMuIEl0IG1haW50YWluczoKCi0gQSAqKm1vbm90b25pYyBldmVudC10aW1lIHdhdGVybWFyayoqOiB0aGUgaGlnaGVzdCBgZXZlbnRfdGltZXN0YW1wYCBzZWVuLCBtaW51cyBhIGJvdW5kZWQgZGVsYXkgb2YgKiozMCBzZWNvbmRzKiogKGB3YXRlcm1hcmtfZGVsYXlfc2Vjb25kc2AgaW4gYGNvbmZpZy9zZXR0aW5ncy5weWApLiBBbiBldmVudCBhcnJpdmluZyB3aXRoIGEgdGltZXN0YW1wIGJlaGluZCB0aGUgd2F0ZXJtYXJrIGlzIG5vdCBzaWxlbnRseSBkcm9wcGVkIOKAlCBpdCBpcyAqKnF1YXJhbnRpbmVkKiogYW5kIGNvdW50ZWQsIHNvIGxhdGUgZGF0YSBpcyB2aXNpYmxlIHJhdGhlciB0aGFuIGxvc3QuCi0gQW4gKippbi1tZW1vcnkgc2V0IG9mIHNlZW4gYHRyYWRlX2lkYHMqKiAoY2FwcGVkIGF0IDI1MCwwMDAgZW50cmllcykuIEEgcmVwbGF5ZWQgZXZlbnQgd2hvc2UgSUQgaXMgYWxyZWFkeSBpbiB0aGUgc2V0IGlzIHJlamVjdGVkIGlkZW1wb3RlbnRseSwgcmVnYXJkbGVzcyBvZiB3aGljaCBiYXRjaCBvciByZXN0YXJ0IGl0IGFycml2ZXMgaW4uCgpWYWxpZGF0aW9uIGFuZCBkZWR1cCBydW4gYXQgfjc1MGsgZXZlbnRzL3NlYyBiZWNhdXNlIHRoZSBjaGVjayBpcyBhIGhhc2ggbG9va3VwLCBub3QgYSBzdG9yYWdlIHJvdW5kLXRyaXAg4oCUIHRoZSBjb25zdW1lciBpcyBkZWxpYmVyYXRlbHkgfjl4IGZhc3RlciB0aGFuIHRoZSBwcm9kdWNlciBzbyBiYWNrcHJlc3N1cmUgc3Bpa2VzIGRyYWluLgoKIyMjIEV4YWN0bHktT25jZSwgUHJvdmVuIFR3aWNlIChgc3JjL2NoYW9zL2ApCgoiRXhhY3RseS1vbmNlIiBpcyBjbGFpbWVkIGhlcmUgaW4gb25lIHByZWNpc2Ugc2Vuc2U6ICphZnRlciBhIHdvcmtlciBjcmFzaCBhbmQgYSBmdWxsIHJlcGxheSBvZiB0aGUgc3RyZWFtLCB0aGUgY29tbWl0dGVkIHNldCBjb250YWlucyBldmVyeSB1bmlxdWUgdHJhZGUgZXhhY3RseSBvbmNlIOKAlCBubyBkdXBsaWNhdGVzLCBubyBsb3NzZXMqIOKAlCBhbmQgdGhlIHJlY29uY2lsaWF0aW9uIGlzICoqY29tcHV0ZWQgZnJvbSB0aGUgZGF0YSwgbmV2ZXIgaGFyZGNvZGVkKiouIEl0IGlzIHByb3ZlbiB0d28gd2F5czoKCjEuICoqSW4tcHJvY2VzcyBzaW11bGF0aW9uKiogKGBjaGFvc19lbmdpbmUucHlgKTogdGhlIGNvbnN1bWVyIHByb2Nlc3NlcyAyLDUwMCB0cmFkZXMsIGlzIGRyb3BwZWQgbWlkLWZsaWdodCwgYW5kIHRoZSBicm9rZXIgcmUtZGVsaXZlcnMgdGhlIGxhc3QgMSwwMDAgdW5hY2tub3dsZWRnZWQgZXZlbnRzIGFsb25nIHdpdGggdGhlIHJlc3Qgb2YgdGhlIHN0cmVhbS4gVGhlIHRlc3QgdGhlbiBjaGVja3MsIG9uIHRoZSBhY3R1YWwgY29tbWl0dGVkIG91dHB1dCwgdGhhdCB0aGVyZSBhcmUgemVybyBkdXBsaWNhdGUgdHJhZGUgSURzICoqYW5kKiogdGhhdCBgY29tbWl0dGVkIOKIqiBxdWFyYW50aW5lZCA9PSB0aGUgb3JpZ2luYWwgc2V0IG9mIHVuaXF1ZSB0cmFkZSBJRHNgIGV4YWN0bHkg4oCUIG5vIHBoYW50b20gcmVjb3Jkcywgbm9uZSBtaXNzaW5nLgoyLiAqKlJlYWwgc3VicHJvY2VzcyBjcmFzaCB0ZXN0KiogKGByZWFsX2NyYXNoLnB5YCwgYHRlc3RzL3Rlc3RfcmVhbF9jcmFzaF9yZWNvdmVyeS5weWApOiBpbmdlc3Rpb24gcnVucyBpbiBhICoqc2VwYXJhdGUgcHJvY2VzcyoqIHdob3NlIGRlZHVwbGljYXRvciBwZXJzaXN0cyBpdHMgc3RhdGUgKHNlZW4gSURzICsgd2F0ZXJtYXJrKSB0byBkaXNrIGFmdGVyIGV2ZXJ5IGJhdGNoIHZpYSBgc2F2ZV9zdGF0ZSgpYC9gbG9hZF9zdGF0ZSgpYC4gVGhlIHByb2Nlc3MgaXMga2lsbGVkIHdpdGggYSByZWFsICoqYFNJR0tJTExgKiog4oCUIG5vIGNsZWFudXAsIG5vIGdyYWNlZnVsIHNodXRkb3duIOKAlCB0aGVuIHJlc3RhcnRlZCwgdGhlIGZ1bGwgc3RyZWFtIGlzIHJlcGxheWVkLCBhbmQgdGhlIHNhbWUgY29tcHV0ZWQgcmVjb25jaWxpYXRpb24gbXVzdCBwYXNzLiBUaGlzIGlzIHRoZSB0ZXN0IHRoYXQgbWFrZXMgdGhlIGV4YWN0bHktb25jZSBjbGFpbSBtb3JlIHRoYW4gYSBzaW11bGF0aW9uOiB0aGUgcmVjb3ZlcnkgcGF0aCBpcyB0aGUgc2FtZSBzdGF0ZS1yZXN0b3JlIGNvZGUgYSByZWFsIHJlc3RhcnQgd291bGQgdXNlLgoKIyMjIFNvbHZpbmcgdGhlIFNtYWxsLUZpbGUgUHJvYmxlbSAoYHNyYy9sYWtlaG91c2UvY29tcGFjdGlvbl93b3JrZXIucHlgKQoKQnJvbnplIHdyaXRlcyBsYW5kIGFzIG1pY3JvLWJhdGNoIFBhcnF1ZXQgZmlsZXMgaW4gYGRhdGU9WVlZWS1NTS1ERC9ob3VyPUhIYCBwYXJ0aXRpb25zLiBUaGUgYENvbXBhY3Rpb25Xb3JrZXJgIHNjYW5zIHBhcnRpdGlvbnMgYW5kIGNvbnNvbGlkYXRlcyBhbnkgdGhhdCBleGNlZWQgdGhlIGZyYWdtZW50YXRpb24gdGhyZXNob2xkIChgbWluX2ZpbGVfY291bnRfZm9yX2NvbXBhY3Rpb24gPSA0YCwgb3IgZmlsZXMgdW5kZXIgdGhlIDUgTUIgc21hbGwtZmlsZSB0aHJlc2hvbGQgaW4gYGNvbmZpZy9zZXR0aW5ncy5weWApOiBpdCByZWFkcyB0aGUgc21hbGwgZmlsZXMsIGNvbmNhdGVuYXRlcyB0aGVtIGludG8gb25lIGRpY3Rpb25hcnktZW5jb2RlZCBQYXJxdWV0IGZpbGUgdGFyZ2V0aW5nICoqMTI4IE1CKiosIGFuZCBhdG9taWNhbGx5IHVubGlua3MgdGhlIG9yaWdpbmFscy4gTWVhc3VyZWQgZWZmZWN0IG9uIGEgNDAtZmlsZSBwYXJ0aXRpb246IHNjYW4gbGF0ZW5jeSAqKjEzLjk4IG1zIOKGkiAyLjc3IG1zICg1LjA1eCkqKiBhbmQgKioxOC45NCUqKiBsZXNzIHN0b3JhZ2UuIFJvdyBwcmVzZXJ2YXRpb24gdGhyb3VnaCBjb21wYWN0aW9uIGlzIGNvdmVyZWQgYnkgYHRlc3RzL3Rlc3RfY29tcGFjdGlvbi5weWAg4oCUIGNvbnNvbGlkYXRpb24gbXVzdCBuZXZlciBjaGFuZ2UgdGhlIGRhdGEsIG9ubHkgaXRzIGxheW91dC4KCiMjIyBTaWx2ZXIgUGlwZWxpbmUgKyBEZWFkLUxldHRlciBRdWV1ZSAoYHNyYy90cmFuc2Zvcm1zL3NpbHZlcl9waXBlbGluZS5weWApCgpTaWx2ZXIgY29uZm9ybXMgQnJvbnplIHRyYWRlcyBpbnRvIGEgY2xlYW4gZmFjdCB0YWJsZSwgZW5mb3JjaW5nIHRoZSBzY2hlbWEgY29udHJhY3Q6IG5vbi1udWxsIHRyYWRlIElEcywgYHByaWNlID4gMGAsIGBxdHkgPiAwYCwgdW5pcXVlIGB0cmFkZV9pZGAuIFJvd3MgdGhhdCBmYWlsIGFyZSBub3QgZHJvcHBlZCBhbmQgbm90IGZvcmNlZCBpbiDigJQgdGhleSBhcmUgcm91dGVkIHRvIHRoZSAqKkRlYWQtTGV0dGVyIFF1ZXVlKiogKGBkYXRhL2RscS9gKSB3aXRoIHRoZSBmYWlsdXJlIHJlYXNvbiBhdHRhY2hlZCwgc28gY29ycnVwdCBkYXRhIHN0YXlzIGluc3BlY3RhYmxlLiBTaWx2ZXIgYnVpbGRzIGFyZSBpbmNyZW1lbnRhbCAoY292ZXJlZCBieSBgdGVzdHMvdGVzdF9zaWx2ZXJfaW5jcmVtZW50YWwucHlgKS4KCiMjIyBHb2xkIE1hcnRzIOKAlCBQeXRob24gYW5kIGRidCAoYHNyYy90cmFuc2Zvcm1zL2dvbGRfbWFydHMucHlgLCBgZGJ0L2ApCgpUaGUgR29sZCBsYXllciBleGlzdHMgaW4gdHdvIGVxdWl2YWxlbnQgZm9ybXM6CgotICoqUHl0aG9uL0R1Y2tEQioqIChgZ29sZF9tYXJ0cy5weWApIOKAlCB0aGUgcnVudGltZSBwYXRoIHRoZSBkYXNoYm9hcmQgYW5kIHRlc3RzIHVzZS4gQnVpbGRzIGBhZ2dfaW50cmFkYXlfdndhcGAgKDEtbWludXRlIGFuZCA1LW1pbnV0ZSBWV0FQIGJ1Y2tldHMpLCBgZmN0X3RyYWRlX2V4ZWN1dGlvbnNgIChvbmUgcm93IHBlciB0cmFkZSksIGBmY3RfZXhlY3V0aW9uX3NsaXBwYWdlYCAoZmlsbCBwcmljZSB2cy4gYXJyaXZhbCBtaWQtcXVvdGUsIHBlciB2ZW51ZSksIGFuZCB0aGUgYGRpbV9pbnN0cnVtZW50c2AgLyBgZGltX3ZlbnVlc2AgZGltZW5zaW9ucyBhcyBQYXJxdWV0IHRhYmxlcy4KLSAqKmRidCoqIChgZGJ0L21vZGVscy9gKSDigJQgdGhlIHNhbWUgbWFydHMgZXhwcmVzc2VkIGFzIHZlcnNpb25lZCBTUUwgbW9kZWxzIChgc3RhZ2luZy9zdGdfbWFya2V0X3RyYWRlc2Ag4oaSIGBtYXJ0cy9hZ2dfaW50cmFkYXlfdndhcGAsIGBmY3RfdHJhZGVfZXhlY3V0aW9uc2AsIGBmY3RfZXhlY3V0aW9uX3NsaXBwYWdlYCksIHdpdGggZGF0YSBjb250cmFjdHMgYW5kIGludmFyaWFudCB0ZXN0cyBpbiBgc2NoZW1hLnltbGAuIGBkYnQgYnVpbGRgIHBhc3NlcyAxNy8xNy4gVGhlIHBvaW50IG9mIHRoZSBkdXBsaWNhdGlvbiBpcyByZXZpZXdhYmlsaXR5OiB0aGUgdHJhbnNmb3JtYXRpb25zIGV4aXN0IGJvdGggYXMgZXhlY3V0YWJsZSBwaXBlbGluZSBjb2RlIGFuZCBhcyBkZWNsYXJhdGl2ZSBTUUwgd2l0aCB0ZXN0cywgYW5kIGJvdGggYXJlIHZlcmlmaWVkLgoKVldBUCBpcyBjb21wdXRlZCB0aGUgc3RhbmRhcmQgd2F5IHRocm91Z2hvdXQ6IGDOoyhwcmljZSDDlyBxdHkpIC8gzqMocXR5KWAuCgojIyMgT3B0aW9uYWwgS2Fma2EgSW5nZXN0aW9uIChgc3JjL2luZ2VzdGlvbi9rYWZrYV9jb25zdW1lci5weWApCgpUaGUgY29yZSBwaXBlbGluZSBydW5zIG9uIGFuIGluLXByb2Nlc3MgYFN0cmVhbUJ1ZmZlcmAsIHNvIGl0IG5lZWRzIG5vIGJyb2tlciB0byBydW4gb3IgdGVzdC4gRm9yIGEgYnJva2VyLWJhY2tlZCBkZXBsb3ltZW50LCBga2Fma2FfY29uc3VtZXIucHlgIGFkYXB0cyBhIFJlZHBhbmRhL0thZmthIHRvcGljIGludG8gdGhlIHNhbWUgYnVmZmVyIOKAlCBhbmQgKipjb21taXRzIG9mZnNldHMgb25seSBhZnRlciBhIG1lc3NhZ2UgaGFzIGJlZW4gcHJvY2Vzc2VkKiosIG5ldmVyIG9uIHJlY2VpcHQuIFRoYXQgb3JkZXJpbmcgaXMgd2hhdCBrZWVwcyB0aGUgYnJva2VyIHBhdGggYXQtbGVhc3Qtb25jZSBhdCB0aGUgdHJhbnNwb3J0IGFuZCBleGFjdGx5LW9uY2UgYXQgdGhlIGxha2Vob3VzZTogYSBjcmFzaCBiZWZvcmUgY29tbWl0IHJlcGxheXMgdGhlIG1lc3NhZ2UsIGFuZCB0aGUgZGVkdXBsaWNhdG9yIGFic29yYnMgdGhlIHJlcGxheS4KCi0tLQoKIyMg8J+boO+4jyBTeXN0ZW0gQXJjaGl0ZWN0dXJlIERpYWdyYW0KClRoZSBkaWFncmFtIGF0IHRoZSB0b3Agb2YgdGhpcyBSRUFETUUgKGBsYWtlaG91c2UtYXJjaGl0ZWN0dXJlLnN2Z2ApIHRyYWNlcyBvbmUgZXZlbnQgdGhyb3VnaCB0aGUgc3lzdGVtOiAqKk1hcmtldCBGZWVkIOKGkiBSZWRwYW5kYS9LYWZrYSDihpIgV2F0ZXJtYXJrZWQgRGVkdXAg4oaSIENoYW9zLXRlc3RlZCBjb21taXQg4oaSIEJyb256ZSDihpIgKGNvbXBhY3Rpb24pIOKGkiBTaWx2ZXIgKyBETFEg4oaSIEdvbGQgKGRidCkqKi4gRXZlcnkgbGFiZWwgYW5kIG51bWJlciBvbiBpdCBjb21lcyBmcm9tIGBkb2NzL0JFTkNITUFSS1MubWRgIG9yIGBjb25maWcvc2V0dGluZ3MucHlgLgoKLS0tCgojIyDwn5OmIFByb2plY3QgRGlyZWN0b3J5IFN0cnVjdHVyZQoKYGBgCm1hcmtldC1zdHJlYW0tbGFrZWhvdXNlLwrilJzilIDilIAgY29uZmlnLwrilIIgICDilJTilIDilIAgc2V0dGluZ3MucHkgICAgICAgICAgICAgICAgICAjIFN0b3JhZ2UgcGF0aHMsIGNvbXBhY3Rpb24gdGhyZXNob2xkcywgd2F0ZXJtYXJrcywgdmVudWVzCuKUnOKUgOKUgCBzcmMvCuKUgiAgIOKUnOKUgOKUgCBnZW5lcmF0b3IvCuKUgiAgIOKUgiAgIOKUnOKUgOKUgCBtYXJrZXRfZmVlZC5weSAgICAgICAgICAgIyBJbnN0aXR1dGlvbmFsIG1hcmtldCBleGVjdXRpb24gZ2VuZXJhdG9yICg1IHZlbnVlcywgMTAgc3ltYm9scykK4pSCICAg4pSCICAg4pSU4pSA4pSAIGFub21hbGllcy5weSAgICAgICAgICAgICAjIER1cGxpY2F0ZSAvIGxhdGUgLyBtYWxmb3JtZWQgZXZlbnQgaW5qZWN0b3IgKDQlIC8gMyUgLyAwLjUlKQrilIIgICDilJzilIDilIAgaW5nZXN0aW9uLwrilIIgICDilIIgICDilJzilIDilIAgc3RyZWFtX2J1ZmZlci5weSAgICAgICAgICMgU2hhcmRlZCBzdHJlYW1pbmcgYnVmZmVyIHdpdGggY29uc3VtZXIgbGFnIG1ldHJpY3MK4pSCICAg4pSCICAg4pSc4pSA4pSAIGRlZHVwbGljYXRvci5weSAgICAgICAgICAjIFdhdGVybWFya2VkIGlkZW1wb3RlbnQgZGVkdXAgKyBzdGF0ZSBwZXJzaXN0ZW5jZSAoc2F2ZS9sb2FkKQrilIIgICDilIIgICDilJzilIDilIAgYnJvbnplX3dyaXRlci5weSAgICAgICAgICMgQXBwZW5kLW9ubHkgbWljcm8tYmF0Y2ggUGFycXVldCB3cml0ZXIK4pSCICAg4pSCICAg4pSU4pSA4pSAIGthZmthX2NvbnN1bWVyLnB5ICAgICAgICAjIE9wdGlvbmFsIFJlZHBhbmRhL0thZmthIGNvbnN1bWVyIChjb21taXQgYWZ0ZXIgcHJvY2Vzc2luZykK4pSCICAg4pSc4pSA4pSAIGxha2Vob3VzZS8K4pSCICAg4pSCICAg4pSc4pSA4pSAIHN0b3JhZ2VfbWFuYWdlci5weSAgICAgICAjIE1lZGFsbGlvbiBwYXJ0aXRpb25pbmcgJiBsYXllciBzdGF0cyBpbnNwZWN0b3IK4pSCICAg4pSCICAg4pSc4pSA4pSAIGNvbXBhY3Rpb25fd29ya2VyLnB5ICAgICAjIEFzeW5jaHJvbm91cyBzbWFsbC1maWxlIGNvbXBhY3Rpb24gZW5naW5lCuKUgiAgIOKUgiAgIOKUlOKUgOKUgCB0aW1lX3RyYXZlbC5weSAgICAgICAgICAgIyBTbmFwc2hvdCBjYXRhbG9nICYgdGltZS10cmF2ZWwgaW5zcGVjdGlvbgrilIIgICDilJzilIDilIAgdHJhbnNmb3Jtcy8K4pSCICAg4pSCICAg4pSc4pSA4pSAIHNpbHZlcl9waXBlbGluZS5weSAgICAgICAjIENvbmZvcm1lZCB0cmFkZSBmYWN0IHBpcGVsaW5lICsgRExRIHF1YXJhbnRpbmUK4pSCICAg4pSCICAg4pSU4pSA4pSAIGdvbGRfbWFydHMucHkgICAgICAgICAgICAjIEtpbWJhbGwgc3Rhci1zY2hlbWEgbWFydHMgKFZXQVAsIHNsaXBwYWdlLCBkaW1zKQrilIIgICDilJzilIDilIAgYW5hbHl0aWNzLwrilIIgICDilIIgICDilJTilIDilIAgbGFrZWhvdXNlX3NxbC5weSAgICAgICAgICMgWmVyby1jb3B5IER1Y2tEQiBhbmFseXRpY2FsIGVuZ2luZSB3aXRoIGxhdGVuY3kgcHJvZmlsaW5nCuKUgiAgIOKUlOKUgOKUgCBjaGFvcy8K4pSCICAgICAgIOKUnOKUgOKUgCBjaGFvc19lbmdpbmUucHkgICAgICAgICAgIyBJbi1wcm9jZXNzIGNyYXNoIHNpbXVsYXRpb24gJiBjb21wdXRlZCByZWNvbmNpbGlhdGlvbgrilIIgICAgICAg4pSU4pSA4pSAIHJlYWxfY3Jhc2gucHkgICAgICAgICAgICAjIFN1YnByb2Nlc3Mgd29ya2VyIGZvciB0aGUgcmVhbCBTSUdLSUxMIHJlY292ZXJ5IHRlc3QK4pSc4pSA4pSAIGRidC8K4pSCICAg4pSc4pSA4pSAIGRidF9wcm9qZWN0LnltbArilIIgICDilJzilIDilIAgcHJvZmlsZXMueW1sCuKUgiAgIOKUlOKUgOKUgCBtb2RlbHMvCuKUgiAgICAgICDilJzilIDilIAgc2NoZW1hLnltbCAgICAgICAgICAgICAgICMgZGJ0IGRhdGEgY29udHJhY3RzIGFuZCBpbnZhcmlhbnQgdGVzdHMK4pSCICAgICAgIOKUnOKUgOKUgCBzdGFnaW5nLwrilIIgICAgICAg4pSCICAg4pSc4pSA4pSAIHN0Z19tYXJrZXRfdHJhZGVzLnNxbArilIIgICAgICAg4pSCICAg4pSU4pSA4pSAIHNpbHZlcl90cmFkZXNfc291cmNlLnNxbArilIIgICAgICAg4pSU4pSA4pSAIG1hcnRzLwrilIIgICAgICAgICAgIOKUnOKUgOKUgCBhZ2dfaW50cmFkYXlfdndhcC5zcWwgICAgICAgICMgMS1taW4gYW5kIDUtbWluIFZXQVAgYnVja2V0cwrilIIgICAgICAgICAgIOKUnOKUgOKUgCBmY3RfdHJhZGVfZXhlY3V0aW9ucy5zcWwK4pSCICAgICAgICAgICDilJTilIDilIAgZmN0X2V4ZWN1dGlvbl9zbGlwcGFnZS5zcWwK4pSc4pSA4pSAIHRlc3RzLwrilIIgICDilJzilIDilIAgdGVzdF9pbmdlc3Rpb25fd2F0ZXJtYXJrLnB5ICAjIExhdGUtYXJyaXZpbmcgZXZlbnQgcXVhcmFudGluZQrilIIgICDilJzilIDilIAgdGVzdF9kZWR1cGxpY2F0aW9uLnB5ICAgICAgICAjIElkZW1wb3RlbnQgcmVwbGF5IGZpbHRlcmluZwrilIIgICDilJzilIDilIAgdGVzdF9zdHJlYW1fYnVmZmVyLnB5ICAgICAgICAjIEJ1ZmZlciBsYWcvYmFja3ByZXNzdXJlIGJlaGF2aW91cgrilIIgICDilJzilIDilIAgdGVzdF9jb21wYWN0aW9uLnB5ICAgICAgICAgICAjIFNtYWxsLWZpbGUgY29tcGFjdGlvbiAmIHJvdyBwcmVzZXJ2YXRpb24K4pSCICAg4pSc4pSA4pSAIHRlc3RfY2hhb3NfcmVjb3ZlcnkucHkgICAgICAgIyBFeGFjdGx5LW9uY2UgdW5kZXIgc2ltdWxhdGVkIGNyYXNoIChjb21wdXRlZCByZWNvbmNpbGlhdGlvbikK4pSCICAg4pSc4pSA4pSAIHRlc3RfcmVhbF9jcmFzaF9yZWNvdmVyeS5weSAgIyBFeGFjdGx5LW9uY2UgdW5kZXIgYSByZWFsIHN1YnByb2Nlc3MgU0lHS0lMTArilIIgICDilJzilIDilIAgdGVzdF9zaWx2ZXJfaW5jcmVtZW50YWwucHkgICAjIEluY3JlbWVudGFsIFNpbHZlciBidWlsZHMK4pSCICAg4pSc4pSA4pSAIHRlc3RfZGltZW5zaW9uYWxfbWFydHMucHkgICAgIyBWV0FQIG1hdGgsIHNsaXBwYWdlLCBhbmQgRExRIHJvdXRpbmcK4pSCICAg4pSU4pSA4pSAIHRlc3Rfa2Fma2FfY29uc3VtZXIucHkgICAgICAgIyBDb21taXQtYWZ0ZXItcHJvY2Vzc2luZyBvZmZzZXQgYmVoYXZpb3VyCuKUnOKUgOKUgCBiZW5jaG1hcmtzLwrilIIgICDilJzilIDilIAgYmVuY2htYXJrX3Rocm91Z2hwdXQucHkgICAgICAjIFNhdHVyYXRlcyBwaXBlbGluZSAoMTAwayBldmVudHMpICYgbWVhc3VyZXMgRVBTL2xhZwrilIIgICDilJTilIDilIAgYmVuY2htYXJrX2NvbXBhY3Rpb24ucHkgICAgICAjIFNjYW4gbGF0ZW5jeSBiZWZvcmUgdnMuIGFmdGVyIGNvbXBhY3Rpb24K4pSc4pSA4pSAIGRvY3MvCuKUgiAgIOKUlOKUgOKUgCBCRU5DSE1BUktTLm1kICAgICAgICAgICAgICAgICMgRnVsbCBtZWFzdXJlZCBiZW5jaG1hcmsgcmVjb3JkCuKUnOKUgOKUgCBkYXNoYm9hcmQucHkgICAgICAgICAgICAgICAgICAgICAjIFN0cmVhbWxpdCByZWFsLXRpbWUgbGFrZWhvdXNlIHRlbGVtZXRyeSBjb25zb2xlCuKUnOKUgOKUgCBkb2NrZXItY29tcG9zZS55bWwgICAgICAgICAgICAgICAjIFJlZHBhbmRhICsgTWluSU8gKyBkYXNoYm9hcmQgc3RhY2sK4pSc4pSA4pSAIERvY2tlcmZpbGUgICAgICAgICAgICAgICAgICAgICAgICMgRGFzaGJvYXJkIGNvbnRhaW5lciBkZWZpbml0aW9uCuKUnOKUgOKUgCBsYWtlaG91c2UtYXJjaGl0ZWN0dXJlLnN2ZyAgICAgICAjIERhcmstdGhlbWUgYXJjaGl0ZWN0dXJhbCBkaWFncmFtCuKUlOKUgOKUgCBMSUNFTlNFICAgICAgICAgICAgICAgICAgICAgICAgICAjIE1JVApgYGAKCi0tLQoKIyMg4pqhIEZ1bGwgRXhlY3V0aW9uICYgRGVwbG95bWVudCBHdWlkZQoKIyMjIDEuIFNldHVwCgpgYGBiYXNoCmdpdCBjbG9uZSBodHRwczovL2dpdGh1Yi5jb20vaXNoYWFhYW4xNy9tYXJrZXQtc3RyZWFtLWxha2Vob3VzZS5naXQKY2QgbWFya2V0LXN0cmVhbS1sYWtlaG91c2UKCnB5dGhvbiAtbSB2ZW52IC52ZW52CnNvdXJjZSAudmVudi9iaW4vYWN0aXZhdGUgICAgICAgICMgTGludXgvbWFjT1MKLlwudmVudlxTY3JpcHRzXGFjdGl2YXRlICAgICAgICAgIyBXaW5kb3dzCgpwaXAgaW5zdGFsbCAtciByZXF1aXJlbWVudHMudHh0CmBgYAoKIyMjIDIuIFJ1biB0aGUgdGVzdCBzdWl0ZQoKYGBgYmFzaApweXRlc3QgLXYKYGBgCgoxNCB0ZXN0cyBhY3Jvc3MgOSBmaWxlcyDigJQgaW5jbHVkaW5nIHRoZSByZWFsIHN1YnByb2Nlc3MgYFNJR0tJTExgIHJlY292ZXJ5IHRlc3QsIHdoaWNoIHNwYXducyB0aGUgaW5nZXN0aW9uIHdvcmtlciwga2lsbHMgaXQgbWlkLXN0cmVhbSwgcmVzdGFydHMgaXQsIGFuZCB2ZXJpZmllcyB0aGUgY29tcHV0ZWQgcmVjb25jaWxpYXRpb24uCgojIyMgMy4gUnVuIHRoZSBiZW5jaG1hcmtzCgpgYGBiYXNoCnB5dGhvbiBiZW5jaG1hcmtzL2JlbmNobWFya190aHJvdWdocHV0LnB5CnB5dGhvbiBiZW5jaG1hcmtzL2JlbmNobWFya19jb21wYWN0aW9uLnB5CmBgYAoKRXhwZWN0ZWQgcmVzdWx0cyBhcmUgdGhlIHRhYmxlcyBpbiAqKlJlc3VsdHMqKiBhYm92ZSAoZnVsbCByZWNvcmQgaW4gYGRvY3MvQkVOQ0hNQVJLUy5tZGA7IGFic29sdXRlIEVQUyB3aWxsIHZhcnkgYnkgbWFjaGluZSwgdGhlIHJhdGlvcyBhbmQgY291bnRzIHNob3VsZCBub3QpLgoKIyMjIDQuIEJ1aWxkIHRoZSBkYnQgbW9kZWxzCgpgYGBiYXNoCmNkIGRidCAmJiBkYnQgYnVpbGQKYGBgCgpFeHBlY3RlZDogKipQQVNTPTE3Kiog4oCUIDMgbWFydCBtb2RlbHMsIDEgc3RhZ2luZyBtb2RlbCwgYW5kIHRoZSBzY2hlbWEgY29udHJhY3QgdGVzdHMuCgojIyMgNS4gTGF1bmNoIHRoZSB0ZWxlbWV0cnkgZGFzaGJvYXJkCgpgYGBiYXNoCnN0cmVhbWxpdCBydW4gZGFzaGJvYXJkLnB5CmBgYAoKT3BlbiBbaHR0cDovL2xvY2FsaG9zdDo4NTAxXShodHRwOi8vbG9jYWxob3N0Ojg1MDEpIOKAlCBsaXZlIG1hcmtldCBmbG93LCBjb21wYWN0aW9uIHN3ZWVwcywgd29ya2VyLWtpbGwgY2hhb3MgdGVzdHMsIGFuZCBEdWNrREIgU1FMIG92ZXIgdGhlIGxha2Vob3VzZS4KCiMjIyA2LiBGdWxsIHN0YWNrIHZpYSBEb2NrZXIgKG9wdGlvbmFsKQoKYGBgYmFzaApkb2NrZXItY29tcG9zZSB1cCAtZApgYGAKClNwaW5zIHVwICoqUmVkcGFuZGEqKiBvbiBgOjE5MDkyYCwgKipSZWRwYW5kYSBDb25zb2xlKiogb24gW2h0dHA6Ly9sb2NhbGhvc3Q6ODA4MF0oaHR0cDovL2xvY2FsaG9zdDo4MDgwKSwgKipNaW5JTyBTMyoqIG9uIFtodHRwOi8vbG9jYWxob3N0OjkwMDFdKGh0dHA6Ly9sb2NhbGhvc3Q6OTAwMSksIGFuZCB0aGUgKipTdHJlYW1saXQgZGFzaGJvYXJkKiogb24gW2h0dHA6Ly9sb2NhbGhvc3Q6ODUwMV0oaHR0cDovL2xvY2FsaG9zdDo4NTAxKS4KCi0tLQoKIyMgS25vd24gTGltaXRhdGlvbnMKCi0gKipUaGUgZmVlZCBpcyBzaW11bGF0ZWQuKiogVGhlcmUgaXMgbm8gcmVhbCBleGNoYW5nZSBkYXRhIGFueXdoZXJlIGluIHRoaXMgcHJvamVjdDsgdGhlIHRocm91Z2hwdXQgYW5kIGxhdGVuY3kgbnVtYmVycyBtZWFzdXJlIHRoaXMgcGlwZWxpbmUgcHJvY2Vzc2luZyB0aGlzIGdlbmVyYXRvcidzIG91dHB1dCwgb24gb25lIFdpbmRvd3MgbWFjaGluZSAoUHl0aG9uIDMuMTMpLiBUaGV5IGRlbW9uc3RyYXRlIGhlYWRyb29tIGFuZCBjb3JyZWN0bmVzcyBiZWhhdmlvdXIsIG5vdCBwcm9kdWN0aW9uIG1hcmtldC1kYXRhIHBlcmZvcm1hbmNlLgotICoqU2luZ2xlLW5vZGUgZGVzaWduLioqIFRoZSBzdHJlYW0gYnVmZmVyIGFuZCB0aGUgZGVkdXBsaWNhdG9yJ3Mgc2Vlbi1JRCBzZXQgbGl2ZSBpbiBvbmUgcHJvY2VzcydzIG1lbW9yeS4gVGhlIHNldCBpcyBjYXBwZWQgYXQgMjUwLDAwMCBJRHMgYW5kIHRoZSB3YXRlcm1hcmsgd2luZG93IGlzIDMwIHM6IGEgZHVwbGljYXRlIHJlcGxheWVkICphZnRlciogaXRzIElEIGhhcyBiZWVuIGV2aWN0ZWQsIG9yIGFuIGV2ZW50IGxhdGVyIHRoYW4gdGhlIHdpbmRvdyB0aGF0IHdhcyBuZXZlciBxdWFyYW50aW5lZCBieSBhbiBlYXJsaWVyIHBhc3MsIGlzIG91dHNpZGUgd2hhdCB0aGlzIGRlc2lnbiBjYW4gY2F0Y2guIEEgZGlzdHJpYnV0ZWQgZGVwbG95bWVudCB3b3VsZCBuZWVkIGEgc2hhcmVkIHN0YXRlIHN0b3JlIChlLmcuIFJvY2tzREIvS2Fma2EgU3RyZWFtcyBzdGF0ZSkg4oCUIHRoZSBzdGF0ZSBwZXJzaXN0ZW5jZSBob29rcyAoYHNhdmVfc3RhdGVgL2Bsb2FkX3N0YXRlYCkgYXJlIHRoZSBzZWFtIHdoZXJlIHRoYXQgd291bGQgYXR0YWNoLgotICoqIkV4YWN0bHktb25jZSIgaXMgc2NvcGVkIHRvIHRoaXMgcGlwZWxpbmUuKiogSXQgbWVhbnM6IGNyYXNoICsgZnVsbCByZXBsYXkg4oeSIHRoZSBjb21taXR0ZWQgbGFrZWhvdXNlIHNldCBpcyBleGFjdGx5IHRoZSB1bmlxdWUgaW5wdXQgc2V0LCBwcm92ZW4gYnkgY29tcHV0ZWQgcmVjb25jaWxpYXRpb24uIEl0IGlzIG5vdCBhIGNsYWltIGFib3V0IGRpc3RyaWJ1dGVkIHRyYW5zYWN0aW9ucyBhY3Jvc3MgZXh0ZXJuYWwgc3lzdGVtcy4KLSAqKkdvbGQgbG9naWMgZXhpc3RzIHR3aWNlLioqIFRoZSBQeXRob24gYnVpbGRlciBhbmQgdGhlIGRidCBtb2RlbHMgaW1wbGVtZW50IHRoZSBzYW1lIG1hcnRzOyBib3RoIGFyZSB0ZXN0LXZlcmlmaWVkLCBidXQgYSBjaGFuZ2UgdG8gb25lIG11c3QgYmUgbWlycm9yZWQgaW4gdGhlIG90aGVyIGJ5IGhhbmQuCi0gKipUaGUgS2Fma2EgcGF0aCBpcyBhbiBhZGFwdGVyLCBub3QgdGhlIGRlZmF1bHQuKiogVGhlIGNvcmUgcGlwZWxpbmUgcnVucyBicm9rZXItZnJlZSBvbiB0aGUgaW4tcHJvY2VzcyBidWZmZXI7IHRoZSBSZWRwYW5kYSBjb25zdW1lciBpcyBleGVyY2lzZWQgYnkgdW5pdCB0ZXN0cyB3aXRoIGEgZmFrZSBzb3VyY2UsIG5vdCBieSBhIGxpdmUtYnJva2VyIGludGVncmF0aW9uIHRlc3QgaW4gQ0kuCgojIyBMaWNlbnNlCgpNSVQgTGljZW5zZS4gRnJlZSBmb3IgYWNhZGVtaWMsIHBlcnNvbmFsLCBhbmQgY29tbWVyY2lhbCByZXNlYXJjaC4K
+# ⚡ MarketStream Lakehouse
+
+<p align="center">
+  <img src="lakehouse-architecture.svg" alt="MarketStream Lakehouse Architecture" width="100%" />
+</p>
+
+[![CI](https://github.com/ishaaaan17/market-stream-lakehouse/actions/workflows/ci.yml/badge.svg)](https://github.com/ishaaaan17/market-stream-lakehouse/actions/workflows/ci.yml)
+[![Python](https://img.shields.io/badge/Python-3.13+-0d1117?style=for-the-badge&logo=python)](https://python.org)
+[![DuckDB](https://img.shields.io/badge/DuckDB-1.1+-FFF000?style=for-the-badge&logo=duckdb&logoColor=black)](https://duckdb.org)
+[![Parquet](https://img.shields.io/badge/Storage-Parquet-58a6ff?style=for-the-badge)](https://parquet.apache.org)
+[![dbt](https://img.shields.io/badge/dbt-Dimensional%20Marts-FF694B?style=for-the-badge&logo=dbt&logoColor=white)](https://getdbt.com)
+[![Docker](https://img.shields.io/badge/Docker-Redpanda%20%2B%20MinIO-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://docker.com)
+
+## System Overview
+
+MarketStream is a streaming data platform for financial market executions: a high-throughput ingestion pipeline with event-time watermarking and idempotent deduplication, feeding a Bronze → Silver → Gold medallion lakehouse of Parquet files queried with DuckDB, with a dbt project modelling the same Gold marts in SQL.
+
+The feed is **simulated** — a generator producing execution reports across **5 venues** (`XNAS`, `XNYS`, `BATS`, `ARCA`, `IEXG`) and 10 symbols, with an anomaly injector that deliberately corrupts it (duplicates, late arrivals, malformed rows). That is a deliberate choice, not a shortcut: the system under test is the *pipeline*, and a generator makes the three failure modes that break real lakehouses reproducible on demand:
+
+1. **The small-file problem** — streaming micro-batches write many tiny Parquet files per partition, and analytical scans degrade as file counts grow.
+2. **At-least-once duplicates** — broker retries and consumer crashes replay messages; a naive lakehouse ingests phantom trades and corrupts VWAP curves and ledgers.
+3. **Out-of-order and late ticks** — events from different venues arrive with non-deterministic delays; without an event-time watermark, stateful processing either drops valid trades or accepts arbitrarily stale ones.
+
+Every number in this README is measured by the scripts in `benchmarks/` and recorded in `docs/BENCHMARKS.md` — nothing is estimated or copied from another project's documentation.
+
+## Results
+
+| Pipeline dimension | Measured | What it means |
+|---|---|---|
+| Producer throughput | **81,196 events/sec** | 104,108 events generated and enqueued in 1.282 s |
+| Consumer drain + dedup rate | **750,564 events/sec** | The same 104,108 events validated and state-checked in 0.139 s — **~9.2x faster than production**, so the consumer drains burst backpressure instead of falling behind |
+| Compaction scan acceleration | **5.05x faster** | DuckDB scan over one partition: **13.98 ms → 2.77 ms** after consolidating 40 small files into 1 |
+| Storage reduction from compaction | **18.94%** | Dictionary encoding + consolidated row groups vs. fragmented micro-batches |
+| Worker-crash fault tolerance | **0 duplicates · 0 lost records** | Verified two independent ways — see *Exactly-Once, Proven Twice* below |
+
+One full benchmark run, end to end (100,000 generated trades + injected anomalies = **104,108 events**):
+
+| Outcome | Events |
+|---|---|
+| Duplicates blocked by the deduplicator | 3,990 |
+| Late ticks quarantined (past the 30 s watermark) | 3,092 |
+| Clean trades committed to the lakehouse | 97,026 |
+
+The dbt project builds clean against the same data: `dbt build` → **PASS=17** (models + data tests).
+
+Reproduce everything:
+
+```bash
+python benchmarks/benchmark_throughput.py   # EPS, lag, dedup/quarantine counts
+python benchmarks/benchmark_compaction.py   # scan latency before vs. after compaction
+pytest                                      # 14 tests, incl. the real SIGKILL recovery test
+```
+
+---
+
+## 🚀 Core Architectural Features
+
+### Simulated Feed + Anomaly Injection (`src/generator/`)
+
+`MarketFeedGenerator` emits execution reports with arrival-benchmark pricing and execution slippage across the 5 venues and 10 symbols. `AnomalyInjector` then corrupts the stream at fixed, declared rates — **4% duplicate trade IDs, 3% late arrivals lagging 45–120 s, 0.5% malformed rows** (negative prices, empty tickers). Because the corruption rates are known, the pipeline's outputs are checkable exactly: the benchmark run above *must* block ≈4% as duplicates and quarantine the late arrivals that fall outside the watermark window, and it does (3,990 and 3,092).
+
+### Watermarked Deduplicator (`src/ingestion/deduplicator.py`)
+
+The deduplicator is where correctness lives. It maintains:
+
+- A **monotonic event-time watermark**: the highest `event_timestamp` seen, minus a bounded delay of **30 seconds** (`watermark_delay_seconds` in `config/settings.py`). An event arriving with a timestamp behind the watermark is not silently dropped — it is **quarantined** and counted, so late data is visible rather than lost.
+- An **in-memory set of seen `trade_id`s** (capped at 250,000 entries). A replayed event whose ID is already in the set is rejected idempotently, regardless of which batch or restart it arrives in.
+
+Validation and dedup run at ~750k events/sec because the check is a hash lookup, not a storage round-trip — the consumer is deliberately ~9x faster than the producer so backpressure spikes drain.
+
+### Exactly-Once, Proven Twice (`src/chaos/`)
+
+"Exactly-once" is claimed here in one precise sense: *after a worker crash and a full replay of the stream, the committed set contains every unique trade exactly once — no duplicates, no losses* — and the reconciliation is **computed from the data, never hardcoded**. It is proven two ways:
+
+1. **In-process simulation** (`chaos_engine.py`): the consumer processes 2,500 trades, is dropped mid-flight, and the broker re-delivers the last 1,000 unacknowledged events along with the rest of the stream. The test then checks, on the actual committed output, that there are zero duplicate trade IDs **and** that `committed ∪ quarantined == the original set of unique trade IDs` exactly — no phantom records, none missing.
+2. **Real subprocess crash test** (`real_crash.py`, `tests/test_real_crash_recovery.py`): ingestion runs in a **separate process** whose deduplicator persists its state (seen IDs + watermark) to disk after every batch via `save_state()`/`load_state()`. The process is killed with a real **`SIGKILL`** — no cleanup, no graceful shutdown — then restarted, the full stream is replayed, and the same computed reconciliation must pass. This is the test that makes the exactly-once claim more than a simulation: the recovery path is the same state-restore code a real restart would use.
+
+### Solving the Small-File Problem (`src/lakehouse/compaction_worker.py`)
+
+Bronze writes land as micro-batch Parquet files in `date=YYYY-MM-DD/hour=HH` partitions. The `CompactionWorker` scans partitions and consolidates any that exceed the fragmentation threshold (`min_file_count_for_compaction = 4`, or files under the 5 MB small-file threshold in `config/settings.py`): it reads the small files, concatenates them into one dictionary-encoded Parquet file targeting **128 MB**, and atomically unlinks the originals. Measured effect on a 40-file partition: scan latency **13.98 ms → 2.77 ms (5.05x)** and **18.94%** less storage. Row preservation through compaction is covered by `tests/test_compaction.py` — consolidation must never change the data, only its layout.
+
+### Silver Pipeline + Dead-Letter Queue (`src/transforms/silver_pipeline.py`)
+
+Silver conforms Bronze trades into a clean fact table, enforcing the schema contract: non-null trade IDs, `price > 0`, `qty > 0`, unique `trade_id`. Rows that fail are not dropped and not forced in — they are routed to the **Dead-Letter Queue** (`data/dlq/`) with the failure reason attached, so corrupt data stays inspectable. Silver builds are incremental (covered by `tests/test_silver_incremental.py`).
+
+### Gold Marts — Python and dbt (`src/transforms/gold_marts.py`, `dbt/`)
+
+The Gold layer exists in two equivalent forms:
+
+- **Python/DuckDB** (`gold_marts.py`) — the runtime path the dashboard and tests use. Builds `agg_intraday_vwap` (1-minute and 5-minute VWAP buckets), `fct_trade_executions` (one row per trade), `fct_execution_slippage` (fill price vs. arrival mid-quote, per venue), and the `dim_instruments` / `dim_venues` dimensions as Parquet tables.
+- **dbt** (`dbt/models/`) — the same marts expressed as versioned SQL models (`staging/stg_market_trades` → `marts/agg_intraday_vwap`, `fct_trade_executions`, `fct_execution_slippage`), with data contracts and invariant tests in `schema.yml`. `dbt build` passes 17/17. The point of the duplication is reviewability: the transformations exist both as executable pipeline code and as declarative SQL with tests, and both are verified.
+
+VWAP is computed the standard way throughout: `Σ(price × qty) / Σ(qty)`.
+
+### Optional Kafka Ingestion (`src/ingestion/kafka_consumer.py`)
+
+The core pipeline runs on an in-process `StreamBuffer`, so it needs no broker to run or test. For a broker-backed deployment, `kafka_consumer.py` adapts a Redpanda/Kafka topic into the same buffer — and **commits offsets only after a message has been processed**, never on receipt. That ordering is what keeps the broker path at-least-once at the transport and exactly-once at the lakehouse: a crash before commit replays the message, and the deduplicator absorbs the replay.
+
+---
+
+## 🛠️ System Architecture Diagram
+
+The diagram at the top of this README (`lakehouse-architecture.svg`) traces one event through the system: **Market Feed → Redpanda/Kafka → Watermarked Dedup → Chaos-tested commit → Bronze → (compaction) → Silver + DLQ → Gold (dbt)**. Every label and number on it comes from `docs/BENCHMARKS.md` or `config/settings.py`.
+
+---
+
+## 📦 Project Directory Structure
+
+```
+market-stream-lakehouse/
+├── config/
+│   └── settings.py                  # Storage paths, compaction thresholds, watermarks, venues
+├── src/
+│   ├── generator/
+│   │   ├── market_feed.py           # Institutional market execution generator (5 venues, 10 symbols)
+│   │   └── anomalies.py             # Duplicate / late / malformed event injector (4% / 3% / 0.5%)
+│   ├── ingestion/
+│   │   ├── stream_buffer.py         # Sharded streaming buffer with consumer lag metrics
+│   │   ├── deduplicator.py          # Watermarked idempotent dedup + state persistence (save/load)
+│   │   ├── bronze_writer.py         # Append-only micro-batch Parquet writer
+│   │   └── kafka_consumer.py        # Optional Redpanda/Kafka consumer (commit after processing)
+│   ├── lakehouse/
+│   │   ├── storage_manager.py       # Medallion partitioning & layer stats inspector
+│   │   ├── compaction_worker.py     # Asynchronous small-file compaction engine
+│   │   └── time_travel.py           # Snapshot catalog & time-travel inspection
+│   ├── transforms/
+│   │   ├── silver_pipeline.py       # Conformed trade fact pipeline + DLQ quarantine
+│   │   └── gold_marts.py            # Kimball star-schema marts (VWAP, slippage, dims)
+│   ├── analytics/
+│   │   └── lakehouse_sql.py         # Zero-copy DuckDB analytical engine with latency profiling
+│   └── chaos/
+│       ├── chaos_engine.py          # In-process crash simulation & computed reconciliation
+│       └── real_crash.py            # Subprocess worker for the real SIGKILL recovery test
+├── dbt/
+│   ├── dbt_project.yml
+│   ├── profiles.yml
+│   └── models/
+│       ├── schema.yml               # dbt data contracts and invariant tests
+│       ├── staging/
+│       │   ├── stg_market_trades.sql
+│       │   └── silver_trades_source.sql
+│       └── marts/
+│           ├── agg_intraday_vwap.sql        # 1-min and 5-min VWAP buckets
+│           ├── fct_trade_executions.sql
+│           └── fct_execution_slippage.sql
+├── tests/
+│   ├── test_ingestion_watermark.py  # Late-arriving event quarantine
+│   ├── test_deduplication.py        # Idempotent replay filtering
+│   ├── test_stream_buffer.py        # Buffer lag/backpressure behaviour
+│   ├── test_compaction.py           # Small-file compaction & row preservation
+│   ├── test_chaos_recovery.py       # Exactly-once under simulated crash (computed reconciliation)
+│   ├── test_real_crash_recovery.py  # Exactly-once under a real subprocess SIGKILL
+│   ├── test_silver_incremental.py   # Incremental Silver builds
+│   ├── test_dimensional_marts.py    # VWAP math, slippage, and DLQ routing
+│   └── test_kafka_consumer.py       # Commit-after-processing offset behaviour
+├── benchmarks/
+│   ├── benchmark_throughput.py      # Saturates pipeline (100k events) & measures EPS/lag
+│   └── benchmark_compaction.py      # Scan latency before vs. after compaction
+├── docs/
+│   └── BENCHMARKS.md                # Full measured benchmark record
+├── dashboard.py                     # Streamlit real-time lakehouse telemetry console
+├── docker-compose.yml               # Redpanda + MinIO + dashboard stack
+├── Dockerfile                       # Dashboard container definition
+├── lakehouse-architecture.svg       # Dark-theme architectural diagram
+└── LICENSE                          # MIT
+```
+
+---
+
+## ⚡ Full Execution & Deployment Guide
+
+### 1. Setup
+
+```bash
+git clone https://github.com/ishaaaan17/market-stream-lakehouse.git
+cd market-stream-lakehouse
+
+python -m venv .venv
+source .venv/bin/activate        # Linux/macOS
+.\.venv\Scripts\activate         # Windows
+
+pip install -r requirements.txt
+```
+
+### 2. Run the test suite
+
+```bash
+pytest -v
+```
+
+14 tests across 9 files — including the real subprocess `SIGKILL` recovery test, which spawns the ingestion worker, kills it mid-stream, restarts it, and verifies the computed reconciliation.
+
+### 3. Run the benchmarks
+
+```bash
+python benchmarks/benchmark_throughput.py
+python benchmarks/benchmark_compaction.py
+```
+
+Expected results are the tables in **Results** above (full record in `docs/BENCHMARKS.md`; absolute EPS will vary by machine, the ratios and counts should not).
+
+### 4. Build the dbt models
+
+```bash
+cd dbt && dbt build
+```
+
+Expected: **PASS=17** — 3 mart models, 1 staging model, and the schema contract tests.
+
+### 5. Launch the telemetry dashboard
+
+```bash
+streamlit run dashboard.py
+```
+
+Open [http://localhost:8501](http://localhost:8501) — live market flow, compaction sweeps, worker-kill chaos tests, and DuckDB SQL over the lakehouse.
+
+### 6. Full stack via Docker (optional)
+
+```bash
+docker-compose up -d
+```
+
+Spins up **Redpanda** on `:19092`, **Redpanda Console** on [http://localhost:8080](http://localhost:8080), **MinIO S3** on [http://localhost:9001](http://localhost:9001), and the **Streamlit dashboard** on [http://localhost:8501](http://localhost:8501).
+
+---
+
+## Known Limitations
+
+- **The feed is simulated.** There is no real exchange data anywhere in this project; the throughput and latency numbers measure this pipeline processing this generator's output, on one Windows machine (Python 3.13). They demonstrate headroom and correctness behaviour, not production market-data performance.
+- **Single-node design.** The stream buffer and the deduplicator's seen-ID set live in one process's memory. The set is capped at 250,000 IDs and the watermark window is 30 s: a duplicate replayed *after* its ID has been evicted, or an event later than the window that was never quarantined by an earlier pass, is outside what this design can catch. A distributed deployment would need a shared state store (e.g. RocksDB/Kafka Streams state) — the state persistence hooks (`save_state`/`load_state`) are the seam where that would attach.
+- **"Exactly-once" is scoped to this pipeline.** It means: crash + full replay ⇒ the committed lakehouse set is exactly the unique input set, proven by computed reconciliation. It is not a claim about distributed transactions across external systems.
+- **Gold logic exists twice.** The Python builder and the dbt models implement the same marts; both are test-verified, but a change to one must be mirrored in the other by hand.
+- **The Kafka path is an adapter, not the default.** The core pipeline runs broker-free on the in-process buffer; the Redpanda consumer is exercised by unit tests with a fake source, not by a live-broker integration test in CI.
+
+## License
+
+MIT License. Free for academic, personal, and commercial research.
