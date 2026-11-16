@@ -70,8 +70,9 @@ Every metric in this repository is measured directly from automated benchmarks a
 - **Bronze (Raw Audit Tier):** Append-only immutable Parquet logs partitioned chronologically by `date/hour`.
 - **Silver (Curated Tier):** Cleansed and conformed trades enforcing non-null IDs, positive execution prices, and valid quantities. Non-conforming rows are routed to the **Dead-Letter Queue (`data/dlq/`)** with error tags.
 - **Gold (Kimball Dimensional Marts):**
-  - **`agg_intraday_vwap`**: 1-minute and 5-minute rolling Volume-Weighted Average Price curves:
+  - **`agg_intraday_vwap` / `agg_intraday_vwap_5min`**: 1-minute and 5-minute bucket Volume-Weighted Average Price curves:
     $$\text{VWAP} = \frac{\sum (\text{Execution Price} \times \text{Quantity})}{\sum \text{Quantity}}$$
+  - **`fct_trade_executions`**: Atomic fact table (one row per trade, FKs to both dims).
   - **`fct_execution_slippage`**: Compares execution fill price against the arrival mid-quote benchmark across trading venues (`XNAS`, `XNYS`, `BATS`, `ARCA`, `IEXG`).
   - **`dim_instruments` & `dim_venues`**: Dimension tables tracking aggregate liquidity and venue routing metrics.
 
